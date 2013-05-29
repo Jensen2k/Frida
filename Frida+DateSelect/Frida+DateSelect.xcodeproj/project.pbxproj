@@ -1,0 +1,404 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B19D82F175377B200F158B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B19D82E175377B200F158B7 /* UIKit.framework */; };
+		5B19D831175377B200F158B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B19D830175377B200F158B7 /* Foundation.framework */; };
+		5B19D833175377B200F158B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B19D832175377B200F158B7 /* CoreGraphics.framework */; };
+		5B19D839175377B200F158B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D837175377B200F158B7 /* InfoPlist.strings */; };
+		5B19D83B175377B200F158B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D83A175377B200F158B7 /* main.m */; };
+		5B19D83F175377B200F158B7 /* FDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D83E175377B200F158B7 /* FDAppDelegate.m */; };
+		5B19D841175377B200F158B7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D840175377B200F158B7 /* Default.png */; };
+		5B19D843175377B200F158B7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D842175377B200F158B7 /* Default@2x.png */; };
+		5B19D845175377B200F158B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D844175377B200F158B7 /* Default-568h@2x.png */; };
+		5B19D848175377B200F158B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D846175377B200F158B7 /* MainStoryboard.storyboard */; };
+		5B19D84B175377B200F158B7 /* FDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D84A175377B200F158B7 /* FDViewController.m */; };
+		5B19D860175396B400F158B7 /* TSQTACalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D85F175396B400F158B7 /* TSQTACalendarRowCell.m */; };
+		5B19D86B175397FF00F158B7 /* CalendarPreviousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D861175397FE00F158B7 /* CalendarPreviousMonth.png */; };
+		5B19D86C175397FF00F158B7 /* CalendarPreviousMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D862175397FE00F158B7 /* CalendarPreviousMonth@2x.png */; };
+		5B19D86D175397FF00F158B7 /* CalendarRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D863175397FE00F158B7 /* CalendarRow.png */; };
+		5B19D86E175397FF00F158B7 /* CalendarRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D864175397FE00F158B7 /* CalendarRow@2x.png */; };
+		5B19D86F175397FF00F158B7 /* CalendarRowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D865175397FE00F158B7 /* CalendarRowBottom.png */; };
+		5B19D870175397FF00F158B7 /* CalendarRowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D866175397FE00F158B7 /* CalendarRowBottom@2x.png */; };
+		5B19D871175397FF00F158B7 /* CalendarSelectedDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D867175397FE00F158B7 /* CalendarSelectedDate.png */; };
+		5B19D872175397FF00F158B7 /* CalendarSelectedDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D868175397FE00F158B7 /* CalendarSelectedDate@2x.png */; };
+		5B19D873175397FF00F158B7 /* CalendarTodaysDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D869175397FF00F158B7 /* CalendarTodaysDate.png */; };
+		5B19D874175397FF00F158B7 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D86A175397FF00F158B7 /* CalendarTodaysDate@2x.png */; };
+		5B19D876175399A900F158B7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D875175399A900F158B7 /* bg.png */; };
+		5B19D8791753A85B00F158B7 /* FDWaitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D8781753A85B00F158B7 /* FDWaitViewController.m */; };
+		A148687AA46C4E9A8D0134F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98817BB265614AF0B9218BBC /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5B19D82B175377B200F158B7 /* Frida+DateSelect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frida+DateSelect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B19D82E175377B200F158B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5B19D830175377B200F158B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5B19D832175377B200F158B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5B19D836175377B200F158B7 /* Frida+DateSelect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Frida+DateSelect-Info.plist"; sourceTree = "<group>"; };
+		5B19D838175377B200F158B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B19D83A175377B200F158B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B19D83C175377B200F158B7 /* Frida+DateSelect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Frida+DateSelect-Prefix.pch"; sourceTree = "<group>"; };
+		5B19D83D175377B200F158B7 /* FDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAppDelegate.h; sourceTree = "<group>"; };
+		5B19D83E175377B200F158B7 /* FDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAppDelegate.m; sourceTree = "<group>"; };
+		5B19D840175377B200F158B7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5B19D842175377B200F158B7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5B19D844175377B200F158B7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5B19D847175377B200F158B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5B19D849175377B200F158B7 /* FDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDViewController.h; sourceTree = "<group>"; };
+		5B19D84A175377B200F158B7 /* FDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDViewController.m; sourceTree = "<group>"; };
+		5B19D85E175396B400F158B7 /* TSQTACalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQTACalendarRowCell.h; sourceTree = "<group>"; };
+		5B19D85F175396B400F158B7 /* TSQTACalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQTACalendarRowCell.m; sourceTree = "<group>"; };
+		5B19D861175397FE00F158B7 /* CalendarPreviousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarPreviousMonth.png; sourceTree = "<group>"; };
+		5B19D862175397FE00F158B7 /* CalendarPreviousMonth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarPreviousMonth@2x.png"; sourceTree = "<group>"; };
+		5B19D863175397FE00F158B7 /* CalendarRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRow.png; sourceTree = "<group>"; };
+		5B19D864175397FE00F158B7 /* CalendarRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRow@2x.png"; sourceTree = "<group>"; };
+		5B19D865175397FE00F158B7 /* CalendarRowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRowBottom.png; sourceTree = "<group>"; };
+		5B19D866175397FE00F158B7 /* CalendarRowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRowBottom@2x.png"; sourceTree = "<group>"; };
+		5B19D867175397FE00F158B7 /* CalendarSelectedDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarSelectedDate.png; sourceTree = "<group>"; };
+		5B19D868175397FE00F158B7 /* CalendarSelectedDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelectedDate@2x.png"; sourceTree = "<group>"; };
+		5B19D869175397FF00F158B7 /* CalendarTodaysDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarTodaysDate.png; sourceTree = "<group>"; };
+		5B19D86A175397FF00F158B7 /* CalendarTodaysDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarTodaysDate@2x.png"; sourceTree = "<group>"; };
+		5B19D875175399A900F158B7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		5B19D8771753A85B00F158B7 /* FDWaitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDWaitViewController.h; sourceTree = "<group>"; };
+		5B19D8781753A85B00F158B7 /* FDWaitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDWaitViewController.m; sourceTree = "<group>"; };
+		98817BB265614AF0B9218BBC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7EFAB90B31944219C7AA9B0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B19D828175377B200F158B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B19D82F175377B200F158B7 /* UIKit.framework in Frameworks */,
+				5B19D831175377B200F158B7 /* Foundation.framework in Frameworks */,
+				5B19D833175377B200F158B7 /* CoreGraphics.framework in Frameworks */,
+				A148687AA46C4E9A8D0134F3 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B19D822175377B200F158B7 = {
+			isa = PBXGroup;
+			children = (
+				5B19D834175377B200F158B7 /* Frida+DateSelect */,
+				5B19D82D175377B200F158B7 /* Frameworks */,
+				5B19D82C175377B200F158B7 /* Products */,
+				E7EFAB90B31944219C7AA9B0 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		5B19D82C175377B200F158B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B19D82B175377B200F158B7 /* Frida+DateSelect.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B19D82D175377B200F158B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B19D82E175377B200F158B7 /* UIKit.framework */,
+				5B19D830175377B200F158B7 /* Foundation.framework */,
+				5B19D832175377B200F158B7 /* CoreGraphics.framework */,
+				98817BB265614AF0B9218BBC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B19D834175377B200F158B7 /* Frida+DateSelect */ = {
+			isa = PBXGroup;
+			children = (
+				5B19D83D175377B200F158B7 /* FDAppDelegate.h */,
+				5B19D83E175377B200F158B7 /* FDAppDelegate.m */,
+				5B19D846175377B200F158B7 /* MainStoryboard.storyboard */,
+				5B19D875175399A900F158B7 /* bg.png */,
+				5B19D85E175396B400F158B7 /* TSQTACalendarRowCell.h */,
+				5B19D85F175396B400F158B7 /* TSQTACalendarRowCell.m */,
+				5B19D849175377B200F158B7 /* FDViewController.h */,
+				5B19D8771753A85B00F158B7 /* FDWaitViewController.h */,
+				5B19D8781753A85B00F158B7 /* FDWaitViewController.m */,
+				5B19D84A175377B200F158B7 /* FDViewController.m */,
+				5B19D861175397FE00F158B7 /* CalendarPreviousMonth.png */,
+				5B19D862175397FE00F158B7 /* CalendarPreviousMonth@2x.png */,
+				5B19D863175397FE00F158B7 /* CalendarRow.png */,
+				5B19D864175397FE00F158B7 /* CalendarRow@2x.png */,
+				5B19D865175397FE00F158B7 /* CalendarRowBottom.png */,
+				5B19D866175397FE00F158B7 /* CalendarRowBottom@2x.png */,
+				5B19D867175397FE00F158B7 /* CalendarSelectedDate.png */,
+				5B19D868175397FE00F158B7 /* CalendarSelectedDate@2x.png */,
+				5B19D869175397FF00F158B7 /* CalendarTodaysDate.png */,
+				5B19D86A175397FF00F158B7 /* CalendarTodaysDate@2x.png */,
+				5B19D835175377B200F158B7 /* Supporting Files */,
+			);
+			path = "Frida+DateSelect";
+			sourceTree = "<group>";
+		};
+		5B19D835175377B200F158B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B19D836175377B200F158B7 /* Frida+DateSelect-Info.plist */,
+				5B19D837175377B200F158B7 /* InfoPlist.strings */,
+				5B19D83A175377B200F158B7 /* main.m */,
+				5B19D83C175377B200F158B7 /* Frida+DateSelect-Prefix.pch */,
+				5B19D840175377B200F158B7 /* Default.png */,
+				5B19D842175377B200F158B7 /* Default@2x.png */,
+				5B19D844175377B200F158B7 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B19D82A175377B200F158B7 /* Frida+DateSelect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B19D84E175377B200F158B7 /* Build configuration list for PBXNativeTarget "Frida+DateSelect" */;
+			buildPhases = (
+				AAB95E9814E54FCF9301F8CB /* Check Pods Manifest.lock */,
+				5B19D827175377B200F158B7 /* Sources */,
+				5B19D828175377B200F158B7 /* Frameworks */,
+				5B19D829175377B200F158B7 /* Resources */,
+				AD315596312E41CEA74F4180 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Frida+DateSelect";
+			productName = "Frida+DateSelect";
+			productReference = 5B19D82B175377B200F158B7 /* Frida+DateSelect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B19D823175377B200F158B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Martin Jensen";
+			};
+			buildConfigurationList = 5B19D826175377B200F158B7 /* Build configuration list for PBXProject "Frida+DateSelect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5B19D822175377B200F158B7;
+			productRefGroup = 5B19D82C175377B200F158B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B19D82A175377B200F158B7 /* Frida+DateSelect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B19D829175377B200F158B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B19D839175377B200F158B7 /* InfoPlist.strings in Resources */,
+				5B19D841175377B200F158B7 /* Default.png in Resources */,
+				5B19D843175377B200F158B7 /* Default@2x.png in Resources */,
+				5B19D845175377B200F158B7 /* Default-568h@2x.png in Resources */,
+				5B19D848175377B200F158B7 /* MainStoryboard.storyboard in Resources */,
+				5B19D86B175397FF00F158B7 /* CalendarPreviousMonth.png in Resources */,
+				5B19D86C175397FF00F158B7 /* CalendarPreviousMonth@2x.png in Resources */,
+				5B19D86D175397FF00F158B7 /* CalendarRow.png in Resources */,
+				5B19D86E175397FF00F158B7 /* CalendarRow@2x.png in Resources */,
+				5B19D86F175397FF00F158B7 /* CalendarRowBottom.png in Resources */,
+				5B19D870175397FF00F158B7 /* CalendarRowBottom@2x.png in Resources */,
+				5B19D871175397FF00F158B7 /* CalendarSelectedDate.png in Resources */,
+				5B19D872175397FF00F158B7 /* CalendarSelectedDate@2x.png in Resources */,
+				5B19D873175397FF00F158B7 /* CalendarTodaysDate.png in Resources */,
+				5B19D874175397FF00F158B7 /* CalendarTodaysDate@2x.png in Resources */,
+				5B19D876175399A900F158B7 /* bg.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AAB95E9814E54FCF9301F8CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		AD315596312E41CEA74F4180 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B19D827175377B200F158B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B19D83B175377B200F158B7 /* main.m in Sources */,
+				5B19D83F175377B200F158B7 /* FDAppDelegate.m in Sources */,
+				5B19D84B175377B200F158B7 /* FDViewController.m in Sources */,
+				5B19D860175396B400F158B7 /* TSQTACalendarRowCell.m in Sources */,
+				5B19D8791753A85B00F158B7 /* FDWaitViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B19D837175377B200F158B7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B19D838175377B200F158B7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5B19D846175377B200F158B7 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B19D847175377B200F158B7 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B19D84C175377B200F158B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5B19D84D175377B200F158B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B19D84F175377B200F158B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7EFAB90B31944219C7AA9B0 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Frida+DateSelect/Frida+DateSelect-Prefix.pch";
+				INFOPLIST_FILE = "Frida+DateSelect/Frida+DateSelect-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5B19D850175377B200F158B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7EFAB90B31944219C7AA9B0 /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Frida+DateSelect/Frida+DateSelect-Prefix.pch";
+				INFOPLIST_FILE = "Frida+DateSelect/Frida+DateSelect-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B19D826175377B200F158B7 /* Build configuration list for PBXProject "Frida+DateSelect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B19D84C175377B200F158B7 /* Debug */,
+				5B19D84D175377B200F158B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B19D84E175377B200F158B7 /* Build configuration list for PBXNativeTarget "Frida+DateSelect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B19D84F175377B200F158B7 /* Debug */,
+				5B19D850175377B200F158B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B19D823175377B200F158B7 /* Project object */;
+}

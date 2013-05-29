@@ -1,0 +1,292 @@
+/* app css stylesheet */
+
+/*
+* Fonts
+*/
+
+@font-face {
+  font-family: 'ProximaNova-Bold';
+  src: url('../fonts/ProximaNova-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ProximaNova-Bold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/ProximaNova-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ProximaNova-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova-Light';
+  src: url('../fonts/ProximaNova-Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ProximaNova-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ProximaNova-Light.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/ProximaNova-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ProximaNova-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova-Regular';
+  src: url('../fonts/ProximaNova-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ProximaNova-Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/ProximaNova-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ProximaNova-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova-Semibold';
+  src: url('../fonts/ProximaNova-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ProximaNova-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ProximaNova-Semibold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/ProximaNova-Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ProximaNova-Semibold.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+html {
+}
+
+body {
+  font: 14px 'ProximaNova-Regular', HelveticaNeue, Helvetica;
+}
+
+.app {
+    overflow: hidden;
+    position: relative;
+    width: 800px;
+    height: 480px;
+    background: url(../img/bg.png);
+    overflow-y: scroll;
+}
+
+.device {
+  background: url(../img/pad.png) no-repeat;
+  width: 1043px;
+  height: 619px;
+  padding: 66px 122px;
+  background-size: 1039px 613px;
+}
+
+.content {
+  padding: 0px 10px;
+  h3.subtitle {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'ProximaNova-Regular';
+  }
+}
+
+.fridge {
+
+  .prod {
+    padding: 10px;
+    float:left;
+    width: 50%;
+
+    box-sizing: border-box;
+    &:nth-child(2) {
+      border-left: 1px solid #ccc;
+    }
+
+    .prod-name {
+      display: block;
+      font-family:  'ProximaNova-Bold';
+      font-size: 16px;
+    }
+    .prod-expire {
+      display: block;
+      font-family: 'ProximaNova-Semibold';
+      font-size: 12px;
+      font-style: italic;
+      line-height: 12px;
+    }
+
+  }
+
+  table {
+    background: #fff;
+    tr {
+      &.prod-row {
+        td {
+          position: relative;
+          padding: 0px;
+          margin: 0px;
+        }
+      }
+      &.section-title {
+        &.red {
+          background-color: #E74C3C;
+        }
+        &.yellow {
+          background-color: #F39C12;
+        }
+        &.green {
+          background-color: #2ECC71;
+        }
+        color: #fff;
+        font-family:  'ProximaNova-Bold';
+      }
+      td {
+
+      }
+    }
+  }
+}
+
+.dashboard {
+
+}
+
+.block {
+    float:left;
+    position: relative;
+}
+
+.views {
+    position: relative;
+    margin-left: 240px;
+}
+
+
+.sidebar {
+    width: 240px;
+    height: 480px;
+    float:left;
+    display: block;
+    background-color: black;
+    position: fixed;
+    z-index: 10;
+    color: #FFFFFF;
+    background: rgba(0,0,0,0.80);
+}
+
+.clock {
+    font-family: ProximaNova-Light;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.39);
+    text-align: center;
+    margin-top: 20px;
+  .time {
+    /* 13:37: */
+    display: block;
+    font-size: 38px;
+    line-height: 42px;
+    letter-spacing: 2px;
+    text-align: left;
+    margin: 0px auto;
+    width: 147px;
+  }
+
+  .date {
+    /* 1. april: */
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0px;
+  }
+
+}
+
+.menu {
+  margin-top: 45px;
+  ul {
+    margin: 0;
+    padding: 0px;
+    li {
+      list-style: none;
+      margin: 0px;
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+
+      &:first-child {
+        padding-top: 0px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      &.active {
+        background-color: #2980b9;
+      }
+
+      i {
+        position: absolute;
+        display: block;
+        float: left;
+        min-width: 38px;
+        top: 7px;
+
+        &.fridge {
+
+          width: 30px;
+          height: 36px;
+          background: url(../img/fridge.png) no-repeat;
+          left: 11px;
+          top: 8px;
+
+        }
+        &.shopping {
+
+          width: 38px;
+          height: 36px;
+          background: url(../img/shopping.png) no-repeat;
+          left: 4px;
+          top: 7px;
+
+        }
+        &.stats {
+          left: 8px;
+          top: 6px;
+          width: 35px;
+          height: 36px;
+          background: url(../img/stats.png) no-repeat;
+
+        }
+        &.settings {
+
+          width: 29px;
+          height: 36px;
+          background: url(../img/settings.png) no-repeat;
+          left: 10px;
+          top: 9px;
+
+        }
+      }
+
+      a {
+        /* Handleliste: */
+        font-family: ProximaNova-Regular;
+        font-size: 19px;
+        color: #FCFCFC;
+        line-height: 23px;
+        letter-spacing: 1px;
+        text-shadow: 0px 1px 2px rgba(100,100,100,0.39);
+        text-decoration: none;
+        width: 100%;
+        position: relative;
+        display: block;
+                padding: 17px 55px;
+
+      }
+    }
+  }
+}
+
+
+/*
+*   Dashboard
+*/
+
+.dashboard {
+  .box {
+    width: 255px;
+    margin: 10px;
+    height: 215px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+

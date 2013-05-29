@@ -1,0 +1,76 @@
+<div class="fridge content">
+	<h1>Mitt kjøleskap</h1>
+  <h3 class="subtitle">Oversikt over alle varer scannet inn i kjøleskapet</h3>
+  <div class="fridge-header">
+    <a ng-click="refresh();">Slette</a>
+  </div>
+	<table class="table table-bordered">
+              <tbody>
+                <tr class="red section-title"><td><span class="table-alert">Utløper om få dager</span></td></tr>
+                <tr ng-repeat="groups in items" class="prod-row">
+                  <td>
+                    <div ng-repeat="item in groups" class="prod">
+                      <span class="prod-name">{{item.name}}</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                  </td>
+                </tr>
+                <!--<tr class="prod-row">
+                  <td><div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                  <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div></td>
+                </tr>
+                <tr class="yellow section-title"><td><span class="table-alert">Utløper en uke</span></td></tr>
+                <tr class="prod-row">
+                  <td>
+                    <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                    <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="prod-row">
+                  <td><div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                  <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div></td>
+                </tr>
+                <tr class="green section-title"><td><span class="table-alert">Utløper senere</span></td></tr>
+                <tr class="prod-row">
+                  <td>
+                    <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                    <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="prod-row">
+                  <td><div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div>
+                  <div class="prod">
+                      <span class="prod-name">Tine lettmelk</span>
+                      <span class="prod-expire">2 dager</span>
+                    </div></td>
+                </tr>-->
+      </tbody>
+    </table>
+</div>
