@@ -39,7 +39,7 @@
   font-style: normal; }
 
 body {
-  font: 14px 'ProximaNova-Regular', HelveticaNeue, Helvetica; }
+  font: 14px "ProximaNova-Regular", HelveticaNeue, Helvetica; }
 
 .app {
   overflow: hidden;
@@ -69,53 +69,10 @@ body {
   -webkit-perspective: 800;
   height: 50px;
   float: left;
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  box-sizing: border-box;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc; }
-  .fridge .prod .prod-inner {
-    width: 100%;
-    height: 100%;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: 0.5s; }
-    .fridge .prod .prod-inner.flipped {
-      -webkit-transform: rotatex(-180deg); }
-    .fridge .prod .prod-inner .face {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      -webkit-backface-visibility: hidden;
-      z-index: 2;
-      padding: 10px;
-      box-sizing: border-box; }
-    .fridge .prod .prod-inner .front {
-      position: absolute;
-      z-index: 1;
-      cursor: pointer; }
-    .fridge .prod .prod-inner .back {
-      -webkit-transform: rotatex(-180deg);
-      background-color: #434343;
-      color: #fff; }
-      .fridge .prod .prod-inner .back a {
-        color: #000;
-        font-weight: bold;
-        background-color: #fff;
-        padding: 10px 10px;
-        position: relative;
-        top: -3px;
-        float: right;
-        text-align: center;
-        width: 88px;
-        font-family: ProximaNova-Bold; }
-        .fridge .prod .prod-inner .back a.del {
-          background-color: #e74c3c;
-          color: #fff;
-          float: left; }
-        .fridge .prod .prod-inner .back a.cancel {
-          float: right; }
-  .fridge .prod:nth-child(2n+1) {
-    border-left: none; }
+  width: 50%;
+  box-sizing: border-box; }
+  .fridge .prod:nth-child(2) {
+    border-left: 1px solid #cccccc; }
   .fridge .prod .prod-name {
     display: block;
     font-family: 'ProximaNova-Bold';
@@ -209,12 +166,18 @@ body {
         float: left;
         min-width: 38px;
         top: 7px; }
+        .menu ul li i.dashboard {
+          width: 26px;
+          height: 26px;
+          background: url(../img/dashboard.png) no-repeat;
+          left: 13px;
+          top: 15px; }
         .menu ul li i.fridge {
-          width: 30px;
-          height: 36px;
-          background: url(../img/fridge.png) no-repeat;
-          left: 11px;
-          top: 8px; }
+          width: 23px;
+          height: 38px;
+          background: url(../img/frida_clear_logo1.png) no-repeat;
+          left: 13px;
+          top: 7px; }
         .menu ul li i.shopping {
           width: 38px;
           height: 36px;
@@ -255,4 +218,54 @@ body {
   margin: 10px;
   height: 215px;
   float: left;
-  background-color: rgba(0, 0, 0, 0.8); }
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.65); }
+  .dashboard .box.box-groceries span.box-heading {
+    height: 55px;
+    font-family: ProximaNova-Bold;
+    font-size: 64px;
+    line-height: 40px;
+    display: block;
+    padding-top: 50px; }
+    .dashboard .box.box-groceries span.box-heading .box-num {
+      background-color: #e74c3c;
+      padding: 5px 20px;
+      border-radius: 45px; }
+  .dashboard .box.box-groceries span.box-detail {
+    line-height: 50px; }
+  .dashboard .box.box-groceries span.box-middle {
+    font-family: ProximaNova-Bold;
+    font-size: 26px; }
+  .dashboard .box.box-groceries span.box-bottom {
+    line-height: 80px; }
+  .dashboard .box.box-stats span.box-heading {
+    font-size: 18px;
+    line-height: 60px;
+    display: block;
+    padding-top: 40px; }
+  .dashboard .box.box-stats span.box-detail {
+    font-family: ProximaNova-Bold;
+    font-size: 56px;
+    line-height: 80px; }
+  .dashboard .box.box-stats span.box-bottom {
+    line-height: 60px; }
+  .dashboard .box.box-dinner span.box-heading {
+    font-size: 45px;
+    line-height: 15px;
+    display: block;
+    padding-top: 80px; }
+  .dashboard .box.box-dinner span.box-detail {
+    font-size: 20px;
+    line-height: 80px; }
+  .dashboard .box.box-weather span.box-heading {
+    font-size: 18px;
+    line-height: 30px;
+    display: block;
+    padding-top: 15px; }
+  .dashboard .box.box-weather span.box-detail {
+    line-height: 110px; }
+  .dashboard .box.box-weather span.box-middle {
+    font-family: ProximaNova-Bold;
+    font-size: 36px; }
