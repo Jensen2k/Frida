@@ -107,17 +107,17 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="3ia-Pj-vWq" secondAttribute="bottom" constant="71" id="2Vl-eQ-x1Z"/>
                             <constraint firstItem="XU6-C7-F4B" firstAttribute="trailing" secondItem="3ia-Pj-vWq" secondAttribute="trailing" type="default" id="CcH-nA-pg7"/>
-                            <constraint firstAttribute="bottom" secondItem="XU6-C7-F4B" secondAttribute="bottom" constant="138" id="EL9-5u-2VB"/>
                             <constraint firstItem="3ia-Pj-vWq" firstAttribute="leading" secondItem="XU6-C7-F4B" secondAttribute="leading" type="default" id="GUj-Rv-nle"/>
                             <constraint firstItem="EfQ-dM-BmV" firstAttribute="centerX" secondItem="lxi-ne-PBJ" secondAttribute="centerX" type="default" id="K2z-IC-xYg"/>
                             <constraint firstItem="lxi-ne-PBJ" firstAttribute="centerX" secondItem="XU6-C7-F4B" secondAttribute="centerX" type="default" id="LDr-zu-xEi"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="leading" secondItem="UNY-8W-Od3" secondAttribute="leading" type="default" id="MoF-EC-084"/>
                             <constraint firstItem="lxi-ne-PBJ" firstAttribute="top" secondItem="EfQ-dM-BmV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Omo-FS-lhG"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="top" secondItem="UNY-8W-Od3" secondAttribute="top" type="default" id="RhN-UF-Otq"/>
+                            <constraint firstAttribute="bottom" secondItem="XU6-C7-F4B" secondAttribute="bottom" constant="145" id="TbA-Da-OEb"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="bottom" secondItem="UNY-8W-Od3" secondAttribute="bottom" type="default" id="dxb-Ft-3L1"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="trailing" secondItem="UNY-8W-Od3" secondAttribute="trailing" type="default" id="fpq-Nz-Rld"/>
                             <constraint firstItem="EfQ-dM-BmV" firstAttribute="top" secondItem="UNY-8W-Od3" secondAttribute="top" constant="35" id="mlb-N4-dHG"/>
-                            <constraint firstItem="lxi-ne-PBJ" firstAttribute="centerX" secondItem="kE5-gr-aDF" secondAttribute="centerX" type="default" id="rBg-a6-w98"/>
+                            <constraint firstItem="XU6-C7-F4B" firstAttribute="centerX" secondItem="kE5-gr-aDF" secondAttribute="centerX" type="default" id="t7m-Ce-xeO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Frida" id="uyU-hK-BXG">
@@ -237,17 +237,6 @@
     <resources>
         <image name="bg.png" width="640" height="1136"/>
     </resources>
-    <classes>
-        <class className="MFFridgeListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MFFridgeListViewController.h"/>
-        </class>
-        <class className="MFShoppingListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MFShoppingListViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

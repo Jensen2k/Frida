@@ -11,6 +11,21 @@ exports.get = function(req, res) {
     }
 };
 
+exports.setDoor = function(req, res) {
+    console.log(req.body);
+    var fridge = req.params.id;
+    var type = 2;
+    if(db.connection) {
+        var queryString = 'INSERT INTO fridge_data (fridge, value, type) VALUES (?,?,?)';
+        db.connection.query(queryString, [fridge, req.body.door, type], function(err, rows, fields) {
+            if (err) throw err;
+            res.contentType('application/json');
+            res.write("Success");
+            res.end();
+        });
+    }
+};
+
 exports.titleName = function(req, res) {
     var name = req.params.fridgeName;
     if(db.connection) {

@@ -28,15 +28,20 @@
                  @{@"name": @"Stabburet Salami", @"group": @"Pålegg"}]];
   
   self.shoppingList = [[NSMutableArray alloc] initWithArray:@[@"Melk", @"Brød", @"Leverpostei", @"Juice"]];
+
   
+  [self setupRestkit];
     return YES;
 }
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
   // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
+
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
@@ -63,7 +68,7 @@
 -(void)setupRestkit
 {
   
-  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://193.157.242.91:3000"]];
+  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://dev.fridafridge.com:82"]];
   
   [RKObjectManager setSharedManager:objectManager];
   
@@ -72,7 +77,8 @@
   // NOTE: Due to an iOS 5 bug, the managed object model returned is immutable.
   NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];
   RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
-  
+  objectManager.managedObjectStore = managedObjectStore;
+
   // Initialize the Core Data stack
   [managedObjectStore createPersistentStoreCoordinator];
   
@@ -82,28 +88,38 @@
   [managedObjectStore createManagedObjectContexts];
   
   // Set the default store shared instance
-  [RKManagedObjectStore setDefaultStore:managedObjectStore];  objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
-  
-  
-  RKMapping *groceriesMapping = [RKEntityMapping mappingForEntityForName:@"RMHousehold"
-                                                     inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];;
-  RKManagedObjectStore *objectStore;
+  [RKManagedObjectStore setDefaultStore:managedObjectStore];
+  objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
   
   RKEntityMapping* mapping = [RKEntityMapping
                               mappingForEntityForName:@"Groceries"
-                              inManagedObjectStore:objectStore];
-  mapping.identificationAttributes = @[@"identifier"] ;
+                              inManagedObjectStore:managedObjectStore];
+  mapping.identificationAttributes = @[@"identifier"];
   
   [mapping addAttributeMappingsFromDictionary:@{
    @"id": @"identifier",
    @"expiration": @"expire",
    @"item_id": @"item_id",
-   @"name": @"name"
+   @"name": @"name",
+   @"producer": @"producer"
    }];
   
-
-  [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/api/nor/venues.json"];
   
+  RKResponseDescriptor * responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
+                                                                                      pathPattern:@"/groceries"
+                                                                                          keyPath:@"groceries"
+                                                                                      statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+  [objectManager addResponseDescriptor:responseDescriptor];
+
+  
+  
+  [objectManager getObjectsAtPath:@"/groceries" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    
+    NSDictionary *arr = [mappingResult dictionary];
+    NSLog(@"Result: %@", [arr objectForKey:@"groceries"]);
+  } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+    
+  }];
 
 }
 
@@ -111,6 +127,7 @@
   //[[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:67 green:67 blue:67 alpha:1.0]];
   [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top.png"] forBarMetrics:UIBarMetricsDefault];
   [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+  [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
   
 }
 

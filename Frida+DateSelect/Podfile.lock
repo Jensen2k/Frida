@@ -19,11 +19,13 @@ PODS:
     - SocketRocket (~> 0.2)
   - SocketRocket (0.2.0)
   - SOCKit (1.1)
+  - TapkuLibrary (0.2.3)
   - TransitionKit (1.1.0)
 
 DEPENDENCIES:
   - RestKit (~> 0.20.0)
   - socket.IO (~> 0.3.2)
+  - TapkuLibrary (~> 0.2.3)
 
 SPEC CHECKSUMS:
   AFNetworking: a44069e3c9c89867544f6639482f155c7e5f9b41
@@ -31,6 +33,7 @@ SPEC CHECKSUMS:
   socket.IO: fd9cc11d061fad7b4e1d4accc2fc143af0b06d41
   SocketRocket: bca43a94bd9aac3a629df42c06843402399ee67b
   SOCKit: ed67aeeca4a697b63a933229e53f4670d5b9300f
+  TapkuLibrary: 669754cc8392b855b227be01e5b2309d86bae4e7
   TransitionKit: 1624e84f252d5cd26900be28ccb73c69fbe63f8a
 
 COCOAPODS: 0.19.1

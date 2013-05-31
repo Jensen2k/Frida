@@ -15,7 +15,7 @@ var allowCrossDomain = function(req, res, next) {
 }
 
 app.configure(function(){
-    app.set('port', 3000);
+    app.set('port', 82);
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(allowCrossDomain);
@@ -27,7 +27,7 @@ app.configure(function(){
 
 
 io = require('socket.io');
-var h = http.createServer(app).listen(app.get('port'), "127.0.0.1", function(){
+var h = http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
 });
 
@@ -57,14 +57,10 @@ app.get('/items/:id', model.items.one);
 app.get('/items/ean/:ean', model.items.ean);
 app.del('/items/:id', model.items.remove);
 
-app.get('/sebastian', function(req, res) {
-    console.log("Hello! Someone tried the seb route");
-});
-
 app.get('/test', function(req, res) {
     s.send("test");
 
-        s.broadcast.emit("hello2");
+    s.broadcast.emit("hello2");
                 s.broadcast.send("hello3");
 
 
@@ -83,13 +79,23 @@ app.delete('/devices/:id', model.devices.delete);
 */
 app.post('/groceries', function(req, res) {
   model.groceries.add(req, res);
-  s.emit("groceries:update");
+  s.broadcast.emit("groceries:update");
 });
-
+app.post('/groceries/ean', function(req, res) {
+  model.groceries.addByEan(req, res);
+  if(s) {
+    io.sockets.send("groceries:update");
+  }
+});
 app.get('/groceries', model.groceries.get);
+
 app.del('/groceries/:id', model.groceries.remove);
 
 
+app.post('/fridges/:id/door', model.fridges.setDoor);
+
+// Lakerol Test
+// 7
 
 
 

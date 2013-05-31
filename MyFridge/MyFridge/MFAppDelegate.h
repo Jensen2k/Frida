@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
+#import <SocketIO.h>
+#import <SocketRocket/SRWebSocket.h>
 
 
-@interface MFAppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface MFAppDelegate : UIResponder <UIApplicationDelegate, SocketIODelegate, SRWebSocketDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray *items;

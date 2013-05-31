@@ -54,3 +54,15 @@
 #define COCOAPODS_VERSION_MINOR_SOCKit 1
 #define COCOAPODS_VERSION_PATCH_SOCKit 0
 
+// SocketRocket
+#define COCOAPODS_POD_AVAILABLE_SocketRocket
+#define COCOAPODS_VERSION_MAJOR_SocketRocket 0
+#define COCOAPODS_VERSION_MINOR_SocketRocket 2
+#define COCOAPODS_VERSION_PATCH_SocketRocket 0
+
+// socket.IO
+#define COCOAPODS_POD_AVAILABLE_socket_IO
+#define COCOAPODS_VERSION_MAJOR_socket_IO 0
+#define COCOAPODS_VERSION_MINOR_socket_IO 3
+#define COCOAPODS_VERSION_PATCH_socket_IO 2
+

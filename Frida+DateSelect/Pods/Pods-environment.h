@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_SocketRocket 2
 #define COCOAPODS_VERSION_PATCH_SocketRocket 0
 
+// TapkuLibrary
+#define COCOAPODS_POD_AVAILABLE_TapkuLibrary
+#define COCOAPODS_VERSION_MAJOR_TapkuLibrary 0
+#define COCOAPODS_VERSION_MINOR_TapkuLibrary 2
+#define COCOAPODS_VERSION_PATCH_TapkuLibrary 3
+
 // TransitionKit
 #define COCOAPODS_POD_AVAILABLE_TransitionKit
 #define COCOAPODS_VERSION_MAJOR_TransitionKit 1

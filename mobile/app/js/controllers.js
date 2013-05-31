@@ -26,8 +26,10 @@ angular.module('frida.controllers', [])
     });
 
     $scope.update = function() {
-      $http({method: 'GET', url: 'http://localhost:3000/groceries'}).
+      $http({method: 'GET', url: 'http://localhost:82/groceries'}).
         success(function(data, status, headers, config) {
+
+            data = data.groceries;
 
             var items = [];
             var currArr = [];
