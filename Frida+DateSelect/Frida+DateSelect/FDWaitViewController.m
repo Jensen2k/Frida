@@ -27,11 +27,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDateSelector:) name:@"didReciveScan" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReciveProduct:) name:@"didReciveProduct" object:nil];
+  //SocketIO *socket = [[SocketIO alloc] initWithDelegate:self];
+  //[socket connectToHost:@"dev.fridafridge.com" onPort:82];
+  
+  //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDateSelector:) name:@"didReciveScan" object:nil];
 	// Do any additional setup after loading the view.
 }
 
-
+-(void)didReciveProduct:(NSNotification*)notif {
+  NSLog(@"Did recive: ");
+  NSDictionary *obj = [notif.object objectAtIndex:0];
+  //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[obj objectForKey:@"name"] message:@"Scannet produkt!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+  //[alert show];
+}
 
 -(void)showDateSelector:(NSString*)data {
   FDViewController *calView = [[FDViewController alloc] init];
@@ -48,4 +57,5 @@
 - (IBAction)didClickDelete:(id)sender {
   [self performSelector:@selector(showDateSelector:) withObject:@"" afterDelay:10.0];
 }
+
 @end

@@ -16,23 +16,32 @@
 {
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-  SocketIO *socketIO = [[SocketIO alloc] initWithDelegate:self];
-  [socketIO connectToHost:@"192.168.1.13" onPort:3000];
-
+    self.socketIO = [[SocketIO alloc] initWithDelegate:self];
+    [self.socketIO connectToHost:@"dev.fridafridge.com" onPort:82 withParams:nil withNamespace:@"scanner"];
+    
     return YES;
 }
 
-- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
-{
-  NSLog(@"event!");
+-(void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
+  NSLog(@"Mes: %@", packet.dataAsJSON);
+  if([[packet.dataAsJSON objectForKey:@"name"] isEqualToString:@"groceries:add"]) {
+    self.currentObject = [packet.dataAsJSON objectForKey:@"args"];
+    [self newObject];
+  }
 }
-- (void) socketIO:(SocketIO *)socket failedToConnectWithError:(NSError *)error
-{
-  NSLog(@"failedToConnectWithError() %@", error);
+
+-(void)newObject {
+  NSNotification *notif = [NSNotification notificationWithName:@"didReciveProduct" object:self.currentObject];
+  [[NSNotificationCenter defaultCenter] postNotification:notif];
 }
+
+-(void)socketIO:(SocketIO *)socket didReceiveJSON:(SocketIOPacket *)packet {
+  NSLog(@"Packet: %@", packet.data);
+}
+
 - (void) socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
 {
-  NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
+  NSLog(@"P: %@", packet.data);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

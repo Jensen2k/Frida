@@ -18,7 +18,6 @@
 		5B19D845175377B200F158B7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D844175377B200F158B7 /* Default-568h@2x.png */; };
 		5B19D848175377B200F158B7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D846175377B200F158B7 /* MainStoryboard.storyboard */; };
 		5B19D84B175377B200F158B7 /* FDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D84A175377B200F158B7 /* FDViewController.m */; };
-		5B19D860175396B400F158B7 /* TSQTACalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D85F175396B400F158B7 /* TSQTACalendarRowCell.m */; };
 		5B19D86B175397FF00F158B7 /* CalendarPreviousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D861175397FE00F158B7 /* CalendarPreviousMonth.png */; };
 		5B19D86C175397FF00F158B7 /* CalendarPreviousMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D862175397FE00F158B7 /* CalendarPreviousMonth@2x.png */; };
 		5B19D86D175397FF00F158B7 /* CalendarRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D863175397FE00F158B7 /* CalendarRow.png */; };
@@ -31,6 +30,7 @@
 		5B19D874175397FF00F158B7 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D86A175397FF00F158B7 /* CalendarTodaysDate@2x.png */; };
 		5B19D876175399A900F158B7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D875175399A900F158B7 /* bg.png */; };
 		5B19D8791753A85B00F158B7 /* FDWaitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D8781753A85B00F158B7 /* FDWaitViewController.m */; };
+		5BFA03511757AF27001D330E /* FDTrashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA03501757AF27001D330E /* FDTrashViewController.m */; };
 		A148687AA46C4E9A8D0134F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98817BB265614AF0B9218BBC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +51,6 @@
 		5B19D847175377B200F158B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5B19D849175377B200F158B7 /* FDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDViewController.h; sourceTree = "<group>"; };
 		5B19D84A175377B200F158B7 /* FDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDViewController.m; sourceTree = "<group>"; };
-		5B19D85E175396B400F158B7 /* TSQTACalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQTACalendarRowCell.h; sourceTree = "<group>"; };
-		5B19D85F175396B400F158B7 /* TSQTACalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQTACalendarRowCell.m; sourceTree = "<group>"; };
 		5B19D861175397FE00F158B7 /* CalendarPreviousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarPreviousMonth.png; sourceTree = "<group>"; };
 		5B19D862175397FE00F158B7 /* CalendarPreviousMonth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarPreviousMonth@2x.png"; sourceTree = "<group>"; };
 		5B19D863175397FE00F158B7 /* CalendarRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRow.png; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 		5B19D875175399A900F158B7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		5B19D8771753A85B00F158B7 /* FDWaitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDWaitViewController.h; sourceTree = "<group>"; };
 		5B19D8781753A85B00F158B7 /* FDWaitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDWaitViewController.m; sourceTree = "<group>"; };
+		5BFA034F1757AF27001D330E /* FDTrashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTrashViewController.h; sourceTree = "<group>"; };
+		5BFA03501757AF27001D330E /* FDTrashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTrashViewController.m; sourceTree = "<group>"; };
 		98817BB265614AF0B9218BBC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EFAB90B31944219C7AA9B0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -121,11 +121,9 @@
 				5B19D83E175377B200F158B7 /* FDAppDelegate.m */,
 				5B19D846175377B200F158B7 /* MainStoryboard.storyboard */,
 				5B19D875175399A900F158B7 /* bg.png */,
-				5B19D85E175396B400F158B7 /* TSQTACalendarRowCell.h */,
-				5B19D85F175396B400F158B7 /* TSQTACalendarRowCell.m */,
-				5B19D849175377B200F158B7 /* FDViewController.h */,
 				5B19D8771753A85B00F158B7 /* FDWaitViewController.h */,
 				5B19D8781753A85B00F158B7 /* FDWaitViewController.m */,
+				5B19D849175377B200F158B7 /* FDViewController.h */,
 				5B19D84A175377B200F158B7 /* FDViewController.m */,
 				5B19D861175397FE00F158B7 /* CalendarPreviousMonth.png */,
 				5B19D862175397FE00F158B7 /* CalendarPreviousMonth@2x.png */,
@@ -137,6 +135,8 @@
 				5B19D868175397FE00F158B7 /* CalendarSelectedDate@2x.png */,
 				5B19D869175397FF00F158B7 /* CalendarTodaysDate.png */,
 				5B19D86A175397FF00F158B7 /* CalendarTodaysDate@2x.png */,
+				5BFA034F1757AF27001D330E /* FDTrashViewController.h */,
+				5BFA03501757AF27001D330E /* FDTrashViewController.m */,
 				5B19D835175377B200F158B7 /* Supporting Files */,
 			);
 			path = "Frida+DateSelect";
@@ -270,8 +270,8 @@
 				5B19D83B175377B200F158B7 /* main.m in Sources */,
 				5B19D83F175377B200F158B7 /* FDAppDelegate.m in Sources */,
 				5B19D84B175377B200F158B7 /* FDViewController.m in Sources */,
-				5B19D860175396B400F158B7 /* TSQTACalendarRowCell.m in Sources */,
 				5B19D8791753A85B00F158B7 /* FDWaitViewController.m in Sources */,
+				5BFA03511757AF27001D330E /* FDTrashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

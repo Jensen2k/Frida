@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SocketIO.h>
 
-@interface FDWaitViewController : UIViewController
+@interface FDWaitViewController : UIViewController <SocketIODelegate>
 - (IBAction)didClickDelete:(id)sender;
 
 @end

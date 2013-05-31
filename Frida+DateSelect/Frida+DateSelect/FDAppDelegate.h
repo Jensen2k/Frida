@@ -12,5 +12,7 @@
 @interface FDAppDelegate : UIResponder <UIApplicationDelegate, SocketIODelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) SocketIO *socketIO;
+@property (strong, nonatomic) NSDictionary *currentObject;
 
 @end
