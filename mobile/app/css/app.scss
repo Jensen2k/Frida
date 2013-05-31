@@ -219,13 +219,21 @@ body {
         min-width: 38px;
         top: 7px;
 
+        &.dashboard {
+
+          width: 26px;
+          height: 26px;
+          background: url(../img/dashboard.png) no-repeat;
+          left: 13px;
+          top: 15px;
+        }
         &.fridge {
 
-          width: 30px;
-          height: 36px;
-          background: url(../img/fridge.png) no-repeat;
-          left: 11px;
-          top: 8px;
+          width: 23px;
+          height: 38px;
+          background: url(../img/frida_clear_logo1.png) no-repeat;
+          left: 13px;
+          top: 7px;
 
         }
         &.shopping {
@@ -268,7 +276,7 @@ body {
         width: 100%;
         position: relative;
         display: block;
-                padding: 17px 55px;
+        padding: 17px 55px;
 
       }
     }
