@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TKCalendarMonthTableViewController.h"
-#import "TKCalendarMonthView.h"
-#import "TKCalendarMonthViewController.h"
+#import "FDWaitViewController.h"
 
 @interface FDViewController : UIViewController
-@property (nonatomic, strong) NSCalendar *calendar;
 @property (weak, nonatomic) IBOutlet UIView *calView;
+@property (strong, nonatomic) NSDictionary *product;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+
+- (IBAction)didClickClose:(id)sender;
+-(id)initWithProduct:(NSDictionary*)prod;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleLabel;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) FDWaitViewController *parent;
 
 
 @end

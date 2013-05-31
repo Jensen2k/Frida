@@ -64,7 +64,10 @@ body {
     font-family: 'ProximaNova-Regular'; }
 
 .fridge .prod {
-  padding: 10px;
+  position: relative;
+  width: 270px;
+  -webkit-perspective: 800;
+  height: 50px;
   float: left;
   width: 50%;
   box-sizing: border-box; }
@@ -80,21 +83,25 @@ body {
     font-size: 12px;
     font-style: italic;
     line-height: 12px; }
+.fridge .section-title {
+  padding: 10px 5px 10px 5px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  color: #fff;
+  font-family: 'ProximaNova-Bold'; }
+  .fridge .section-title.red {
+    background-color: #E74C3C; }
+  .fridge .section-title.yellow {
+    background-color: #F39C12; }
+  .fridge .section-title.green {
+    background-color: #2ECC71; }
 .fridge table {
   background: #fff; }
   .fridge table tr.prod-row td {
     position: relative;
     padding: 0px;
     margin: 0px; }
-  .fridge table tr.section-title {
-    color: #fff;
-    font-family: 'ProximaNova-Bold'; }
-    .fridge table tr.section-title.red {
-      background-color: #E74C3C; }
-    .fridge table tr.section-title.yellow {
-      background-color: #F39C12; }
-    .fridge table tr.section-title.green {
-      background-color: #2ECC71; }
 
 .block {
   float: left;
