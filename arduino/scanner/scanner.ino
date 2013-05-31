@@ -1,5 +1,3 @@
-#include <avr/pgmspace.h>
-
 #include <avrpins.h>
 #include <max3421e.h>
 #include <usbhost.h>
@@ -15,202 +13,196 @@
 #include <hexdump.h>
 #include <parsetools.h>
 
+// For Ethernet Shield
 #include <SPI.h>
 #include <Ethernet.h>
-#include <QueueList.h>
 
-enum FMethod {
-    GET,
-    POST
-};
-
-class FRequest {
-  public:
-    void setRequest(FMethod method, String path, String data);
-    void setContentType(String type);
-    String getRequestData();
-    void execute();
-    String requestData;
-    String respondData;
-    bool isSendt;
-
-  private:
-    FMethod method;
-    String path;
-    String data;
-    String contentType;
-    String identifier;
-    int getContentLength();
-    void build();
-
-};
-
-
-void FRequest::setRequest(FMethod m, String p, String d) {
-  method = m;
-  path = p;
-  data = d;
-  isSendt = false;
-  contentType = "application/json";
-  identifier = String(random(10, 1000));
-  // Build the request
-  build();
-}
-
-void FRequest::setContentType(String type) {
-  contentType = type;
-}
-
-int FRequest::getContentLength() {
-  return data.length();
-}
-
-
-// Build the request by concatenating strings
-void FRequest::build() {
-
-  String methodStr;
-  if(method == GET) {
-    methodStr = "GET";
-  } else {
-    methodStr = "POST";
-  }
-
-  requestData = methodStr+" "+path+" HTTP/1.1;"
-  " Host: www.fridafridge.com;"
-  " User-Agent: frida+arduino;"
-  " X-Request-Identifier: "+identifier+";"
-  " Connection: close;"
-  " Content-Type: "+contentType+";"
-  " Content-Length: "+getContentLength()+";"
-  " ;"
-  " {\"test\": \"hello\"};"
-  " ;";
-
-}
+// Tones
+#define toneB4 494
+#define toneB5 988
 
 class FNetwork {
   public:
     FNetwork();
-    void sendBarcode(String code);
-    void init(IPAddress ip);
-    void addRequest(FRequest request);
-    void task();
-    void executeRequest(FRequest request);
-    bool hasRequests();
-    FRequest request;
+    ~FNetwork();
+    void init();
 
-    IPAddress dns;
+    // Network methods
+    void addRequest(String m, String p, String d, String o);
+    void executeRequest();
+
+    // Sound methods
+    void playScanSound();
+    void playErrorSound();
+
+    // Temperature method
+    void tempRequest();
+
+    // Door methods
+    void doorRequest(String doorReq);
+
+    int lastTime;
+    String request;  // Expires?
     byte mac[];
+    EthernetClient client;
 
+  
   private:
-    QueueList <FRequest> requests;
-    FRequest getRequest();
-
+    int getContentLength(String data, String other);
+    
+    // Sound variables
+    byte speakerPin;
+    //int toneB4;
+    //int toneB5;
 };
 
-class FScanner : public KeyboardReportParser
-{
+class FScanner : public KeyboardReportParser {
   public:
     FScanner();
-    FNetwork networking;
+    ~FScanner();
+    FNetwork *networking; 
 
   private:
     String barcode;
+    boolean scanned;
 
   protected:
     virtual void OnKeyDown(uint8_t mod, uint8_t key);
     virtual void OnKeyPressed(uint8_t key);
+    
 };
+
 
 FScanner::FScanner() {
   barcode = "";
+  scanned = false;
 }
+
+FScanner::~FScanner() {
+  // Nothing to destruct
+}
+
 
 void FScanner::OnKeyDown(uint8_t mod, uint8_t key)
 {
   uint8_t c = OemToAscii(mod, key);
 
+  if (c) {
+    if (!scanned) {
+      networking->playScanSound(); //DEBUG
+      scanned = true;
+    }
+    if(c == 19) {
+      scanned = false;
+    }
+  }
+
   if (c)
     OnKeyPressed(c);
 }
 
-
 void FScanner::OnKeyPressed(uint8_t key)
 {
 
-  static uint32_t next_time = 0;      //watchdog
-
-  if( millis() > next_time ) {
-    Serial.println(barcode);
-    FRequest req;
-    req.setRequest(POST, "/test", "hello, mom");
-    networking.addRequest(req);
+  if(key == 19) {
+    networking->addRequest("POST", "/groceries/ean", barcode, "ean");
+    networking->executeRequest();
 
     barcode = "";
+    return;
   }
-
-    next_time = millis() + 200;  //reset watchdog
-    barcode.concat((char)key);
+  
+  barcode.concat((char)key);
 
 };
 
 
-
-void FNetwork::sendBarcode(String code) {
-  Serial.println("Sending: " + code);
-}
-
-bool FNetwork::hasRequests() {
-  return !requests.isEmpty();
-}
-
 FNetwork::FNetwork() {
-  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-  //dns = dns(1,1,1,1);
+  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; // ethernet-controllerens mac
+  lastTime = 1000;
+  speakerPin = 3;
+
 }
 
-FRequest FNetwork::getRequest() {
-  return requests.pop();
+FNetwork::~FNetwork() {
+  // Nothing to destruct
+}
+
+void FNetwork::playScanSound() {
+  pinMode(speakerPin, OUTPUT);
+  tone(speakerPin, toneB5);
+  delay(175);
+  noTone(speakerPin);
 }
 
 
-// Only function called from loop
-void FNetwork::task() {
+void FNetwork::playErrorSound() {
+  pinMode(speakerPin, OUTPUT);
+  
+  tone(speakerPin, toneB4);
+  delay(72);
+  noTone(speakerPin);
+  delay(20);
+  tone(speakerPin, toneB4);
+  delay(72);
+  noTone(speakerPin);
+  delay(20);
+  tone(speakerPin, toneB4);
+  delay(72);
+  noTone(speakerPin);
 
-  if(!request.isSendt) {
-    Serial.println("Sendingr equest!");
-    executeRequest(request);
-    request.isSendt = true;
+}
+
+void FNetwork::executeRequest() {
+
+  String data = request;
+    
+  if (client.connect(IPAddress(176,58,103,76), 82)) {
+    // send the HTTP PUT request:
+    char charBufr[data.length()];
+    data.toCharArray(charBufr, data.length());
+    char *str;
+    str = strtok(charBufr, ";");
+    while (str != NULL){ // delimiter is the semicolon
+      client.println(str);
+      str = strtok(NULL, ";");
+    }
   }
+  else {
+    playErrorSound();
+  }
+
+  data = "";
+  client.stop();
+}
+  
+// Setting request
+void FNetwork::addRequest(String m, String p, String d, String o) {
+  request = m+" "+ p +" HTTP/1.1;"
+  "Host: www.fridafridge.com;"
+  "User-Agent: frida+arduino;"
+  "Connection: close;"
+  "Content-Type: application/json;"
+  "Content-Length: "+getContentLength(d, "{\""+o+"\": }\"\"")+";"
+  ";\n"
+  "{\""+o+"\": \""+d+"\"}"
+  "; ";
 }
 
-void FNetwork::executeRequest(FRequest r) {
-  String data = r.requestData;
-  Serial.println(data);
-  /*while ((str = strtok_r(data, ";", &data)) != NULL) // delimiter is the semicolon
-    Serial.println(str);
-    */
+int FNetwork::getContentLength(String data, String other) {
+  String all = data+other;
+  return all.length();
 }
 
-void FNetwork::addRequest(FRequest r) {
-  request = request;
-}
-
-void FNetwork::init(IPAddress ip) {
-
+void FNetwork::init() {
   // give the ethernet module time to boot up:
   delay(1000);
 
   // start the Ethernet connection using a fixed IP address and DNS server:
-  Ethernet.begin(mac, ip, dns);
+  Ethernet.begin(mac, IPAddress(192,168,2,5), IPAddress(192,168,2,1), IPAddress(192,168,2,1));
 
-  // print the Ethernet board/shield's IP address:
-  Serial.print("My IP address: ");
-  Serial.println(Ethernet.localIP());
 
 }
-
 
 USB  Usb;
 HIDBoot<HID_PROTOCOL_KEYBOARD> HidKeyboard(&Usb);
@@ -218,115 +210,108 @@ uint32_t next_time;
 
 FScanner scanner;
 FNetwork networking;
-EthernetClient client;
 
-IPAddress ip(192,168,0,2);
-IPAddress server(192, 168,0,1);
-unsigned long lastConnectionTime = 0;          // last time you connected to the server, in milliseconds
-boolean lastConnected = false;                 // state of the connection last time through the main loop
-const unsigned long postingInterval = 15*60*1000;  // delay between updates, in milliseconds
+// Temperature 
+unsigned long lastTemp = 0;
+
+// Door values
+int doorState = 0;
+boolean openState = false;
+boolean closedState = true;
+boolean openErrorState = false;
+unsigned long lastDoor = 0;
+unsigned long errorDoor = 0;
 
 
 void setup()
 {
   Serial.begin( 115200 );
   setupScanner();
-  networking.init(ip);
 
+  networking.init();
+  delay(200);
 }
-
 
 void setupScanner() {
-  Serial.println("Starting scanner");
 
-  if (Usb.Init() == -1)
-    Serial.println("OSC did not start.");
-
-  delay( 200 );
-  next_time = millis() + 5000;
-  HidKeyboard.SetReportParser(0, (HIDReportParser*)&scanner);
-  scanner.networking = networking;
+  if (Usb.Init() == -1) 
+    delay( 200 );
+    next_time = millis() + 5000;
+    HidKeyboard.SetReportParser(0, (HIDReportParser*)&scanner);
+    scanner.networking = &networking;
 }
-
-
-
-void setupNetwork() {
-
-
-  }
-
-
 
 void loop()
 {
-  Usb.Task();
-  networking.task();
+  if(openState) {
+    Usb.Task();
+  }
+  
+  // Sending temperature reading
+  if(millis() - lastTemp > (30000) ) {
+    networking.tempRequest();
+  }
+
+  // Reads the photosensor every second
+  if(millis() - lastDoor > 1000 ) {
+      
+      //Read current door state
+     doorState = analogRead(A1);
+
+    // When door opens, send one request
+    if(doorState > 200 && !openState) {
+      networking.doorRequest("1");
+      openState = true;
+      closedState = false;
+    }
+
+    // When door is open for too long
+    if(millis() -  errorDoor > (600000) && !openErrorState) {
+      networking.doorRequest("3");
+      openErrorState = true;
+    }
+
+    if(millis() -  errorDoor > (600000) && openState) {
+      networking.playErrorSound();
+    }
+
+    // When door closes, send one request
+    if(doorState < 200 && !closedState ) {
+      networking.doorRequest("0");
+      closedState = true;
+      openErrorState = false;
+
+    }
+    
+    // setting closed door state
+    if(doorState < 200) {
+      openState = false;
+      errorDoor = millis();
+    }
+
+    lastDoor = millis();
+
+  }
 }
-/*
 
-void httpAction() {
-    // if there's incoming data from the net connection.
-  // send it out the serial port.  This is for debugging
-  // purposes only:
-  if (client.available()) {
-    char c = client.read();
-    Serial.print(c);
-  }
-
-  // if there's no net connection, but there was one last time
-  // through the loop, then stop the client:
-  if (!client.connected() && lastConnected) {
-    Serial.println();
-    Serial.println("disconnecting.");
-    client.stop();
-  }
-
-  // if you're not connected, and ten seconds have passed since
-  // your last connection, then connect again and send data:
-  if(!client.connected() && (millis() - lastConnectionTime > postingInterval)) {
-    httpRequest();
-  }
-  // store the state of the connection for next time through
-  // the loop:
-  lastConnected = client.connected();
-}
-
-
-// this method makes a HTTP connection to the server:
-void httpRequest() {
-  // if there's a successful connection:
-  float value = analogRead(1);
+// Method to send temperature
+void FNetwork::tempRequest() {
+  float value = analogRead(A0);
   float voltage = (value/1024.0)*5.0;
   float temp = (voltage-0.5)*100;
-  float temp = 35.0;
-
-  Serial.println(temp);
+  
   char charBuf[15];
   dtostrf(temp, 1, 0, charBuf);
-  String tempString = "12";
+  String tempString = charBuf;
+  //Serial.println(tempString);
+  addRequest("POST", "/fridges/1/temp", tempString, "temp");
+  executeRequest();
 
-  if (client.connect(server, 3000)) {
-    Serial.println("connecting...");
-    // send the HTTP PUT request:
-    client.println("POST /fridges/1/temp HTTP/1.1");
-    client.println("Host: www.arduino.cc");
-    client.println("User-Agent: arduino-ethernet");
-    client.println("Connection: close");
-    client.println("Content-Type: application/json");
-    client.println("Content-Length: 12");
-    client.println();
-    client.println("{\"temp\": "+tempString+"}");
-    client.println();
-
-    // note the time that the connection was made:
-    lastConnectionTime = millis();
-  }
-  else {
-    // if you couldn't make a connection:
-    Serial.println("connection failed");
-    Serial.println("disconnecting.");
-    client.stop();
-  }
+  lastTemp = millis();
 }
-*/
-
+// Method to send door state
+void FNetwork::doorRequest(String doorReq) {
+  //Serial.println("Door state: " + doorReq);
+  addRequest("POST", "/fridges/1/door", doorReq, "door");
+  executeRequest();
+}
