@@ -32,12 +32,21 @@ var h = http.createServer(app).listen(app.get('port'), function(){
 });
 
 io = io.listen(h);
+io.set('log level', 1); // reduce logging
+
 var s;
 
 io.sockets.on('connection', function (socket) {
     console.log("Got connection");
     s = socket;
 });
+
+var scannerDisp;
+
+io.of('scanner').on('connection', function (socket) {
+  scannerDisp = socket;
+});
+
 
 
 app.configure('development', function(){
@@ -82,10 +91,15 @@ app.post('/groceries', function(req, res) {
   s.broadcast.emit("groceries:update");
 });
 app.post('/groceries/ean', function(req, res) {
-  model.groceries.addByEan(req, res);
-  if(s) {
-    io.sockets.send("groceries:update");
-  }
+  model.groceries.addByEan(req, res, function(product) {
+    io.sockets.emit("groceries:update");
+    console.log(product);
+    if(scannerDisp) {
+      scannerDisp.emit("groceries:add", product);
+    }
+
+  });
+
 });
 app.get('/groceries', model.groceries.get);
 

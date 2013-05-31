@@ -18,34 +18,40 @@ exports.add = function(req, res) {
     }
 };
 
-exports.addByEan = function(req, res) {
+exports.addByEan = function(req, res, callback) {
 	if(db.connection)
     {
         var ean = req.body.ean;
         console.log(req.body);
+
 	    // If not
 	   db.connection.query('SELECT * from items WHERE ean = ? LIMIT 1', [ean], function(err, rows, fields) {
 	       if(err) throw err;
-	       console.log(rows);
 
-
+	       var product = {};
+	       var prod = rows[0];
 	       if(rows.length == 0) {
-
 	       		res.status(404);
 	       		res.contentType('application/json');
 		    	res.write(JSON.stringify({ "error": "Item with barcode not found" }));
 		    	res.end();
 		    	return;
 	       }
-	       var prod = rows[0];
 
+	       product.name = prod.name;
+	       product.producer = prod.producer;
+	       product.defaultExpire = prod.defaultExpire;
 
-	       db.connection.query('INSERT INTO groceries (fridge_id, item_id) VALUES (1,?)', [prod.id], function(err, rows, fields) {
+	       db.connection.query('INSERT INTO groceries (fridge_id, item_id) VALUES (1,?)', [prod.id], function(err, row, fields) {
 		       if(err) throw err;
+		       product.id = row.insertId;
 		       res.contentType('application/json');
 		       res.write(JSON.stringify({ "success": "Product added" }));
 		       res.end();
+		       callback(product);
 		   });
+
+
 	   });
     }
 };
@@ -65,18 +71,20 @@ exports.get = function(req, res) {
 };
 
 exports.remove = function(req, res) {
-	var id = req.params.id;
+	console.log("removing");
+	var prod_id = req.params.id;
+	console.log(req.params);
     if(db.connection) {
-        var queryString = 'DELETE FROM groceries where id = ?';
-        db.connection.query(queryString, [id], function(err, rows, fields) {
-            console.log(err);
+        var queryString = 'DELETE FROM groceries WHERE id = ?';
+        db.connection.query(queryString, [prod_id], function(err, rows, fields) {
+        	console.log("removed!");
+        	console.log("rows: ");
             if (err) throw err;
             res.contentType('application/json');
-            res.write({"status": "success"}.stringify);
+            res.write(JSON.stringify({"status": "success"}));
             res.end();
+              io.sockets.emit("groceries:update");
+
         });
     }
-
-
-
 };
