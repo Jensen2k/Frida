@@ -211,4 +211,54 @@ body {
   margin: 10px;
   height: 215px;
   float: left;
-  background-color: rgba(0, 0, 0, 0.8); }
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.65); }
+  .dashboard .box.box-groceries span.box-heading {
+    height: 55px;
+    font-family: ProximaNova-Bold;
+    font-size: 64px;
+    line-height: 40px;
+    display: block;
+    padding-top: 50px; }
+    .dashboard .box.box-groceries span.box-heading .box-num {
+      background-color: #e74c3c;
+      padding: 5px 20px;
+      border-radius: 45px; }
+  .dashboard .box.box-groceries span.box-detail {
+    line-height: 50px; }
+  .dashboard .box.box-groceries span.box-middle {
+    font-family: ProximaNova-Bold;
+    font-size: 26px; }
+  .dashboard .box.box-groceries span.box-bottom {
+    line-height: 80px; }
+  .dashboard .box.box-stats span.box-heading {
+    font-size: 18px;
+    line-height: 60px;
+    display: block;
+    padding-top: 40px; }
+  .dashboard .box.box-stats span.box-detail {
+    font-family: ProximaNova-Bold;
+    font-size: 56px;
+    line-height: 80px; }
+  .dashboard .box.box-stats span.box-bottom {
+    line-height: 60px; }
+  .dashboard .box.box-dinner span.box-heading {
+    font-size: 45px;
+    line-height: 15px;
+    display: block;
+    padding-top: 80px; }
+  .dashboard .box.box-dinner span.box-detail {
+    font-size: 20px;
+    line-height: 80px; }
+  .dashboard .box.box-weather span.box-heading {
+    font-size: 18px;
+    line-height: 30px;
+    display: block;
+    padding-top: 15px; }
+  .dashboard .box.box-weather span.box-detail {
+    line-height: 110px; }
+  .dashboard .box.box-weather span.box-middle {
+    font-family: ProximaNova-Bold;
+    font-size: 36px; }
