@@ -38,6 +38,27 @@ directive('appNodelay', function() {
     });
   };
 }).
+directive('appRotate', function() {
+  return {
+    link: function(scope, elm, attrs) {
+      elm.bind('click', function(e) {
+        e.stopPropagation();
+        $(elm).parent().parent().parent().parent().find(".flipped").removeClass("flipped");
+        $(elm).find('.prod-inner').addClass('flipped');
+      });
+    }
+  };
+}).
+directive('appRotateCancel', function() {
+  return {
+    link: function(scope, elm, attrs) {
+      elm.bind('click', function(e) {
+        e.stopPropagation();
+        $(elm).parent().parent().removeClass("flipped");
+      });
+    }
+  };
+}).
 directive('appTime', function() {
 
   function update(elm) {

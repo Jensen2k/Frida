@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  self.isPresented = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReciveProduct:) name:@"didReciveProduct" object:nil];
   //SocketIO *socket = [[SocketIO alloc] initWithDelegate:self];
   //[socket connectToHost:@"dev.fridafridge.com" onPort:82];
@@ -38,6 +39,30 @@
 -(void)didReciveProduct:(NSNotification*)notif {
   NSLog(@"Did recive: ");
   NSDictionary *obj = [notif.object objectAtIndex:0];
+  
+  
+  UIStoryboard *story = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+  
+  FDViewController *viewController = [story instantiateViewControllerWithIdentifier:@"calSelect"];
+  
+  viewController.product = obj;
+  viewController.parent = self;
+  if(self.isPresented) {
+    [self dismissViewControllerAnimated:YES completion:^{
+      [self presentViewController:viewController animated:YES completion:nil];
+      self.isPresented = YES;
+    }];
+  } else {
+    [self presentViewController:viewController animated:YES completion:nil];
+    self.isPresented = YES;
+  }
+
+  
+
+  
+  
+  
+  
   //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[obj objectForKey:@"name"] message:@"Scannet produkt!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
   //[alert show];
 }

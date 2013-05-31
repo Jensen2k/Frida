@@ -30,6 +30,12 @@
 		5B19D874175397FF00F158B7 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D86A175397FF00F158B7 /* CalendarTodaysDate@2x.png */; };
 		5B19D876175399A900F158B7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B19D875175399A900F158B7 /* bg.png */; };
 		5B19D8791753A85B00F158B7 /* FDWaitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B19D8781753A85B00F158B7 /* FDWaitViewController.m */; };
+		5B7C3A271758B84400FA7C12 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C3A211758B84400FA7C12 /* CKCalendarView.m */; };
+		5B7C3A281758B84400FA7C12 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C3A231758B84400FA7C12 /* left_arrow.png */; };
+		5B7C3A291758B84400FA7C12 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C3A241758B84400FA7C12 /* left_arrow@2x.png */; };
+		5B7C3A2A1758B84400FA7C12 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C3A251758B84400FA7C12 /* right_arrow.png */; };
+		5B7C3A2B1758B84400FA7C12 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B7C3A261758B84400FA7C12 /* right_arrow@2x.png */; };
+		5B7C3A2D1758B98D00FA7C12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7C3A2C1758B98D00FA7C12 /* QuartzCore.framework */; };
 		5BFA03511757AF27001D330E /* FDTrashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA03501757AF27001D330E /* FDTrashViewController.m */; };
 		A148687AA46C4E9A8D0134F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98817BB265614AF0B9218BBC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -64,6 +70,13 @@
 		5B19D875175399A900F158B7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		5B19D8771753A85B00F158B7 /* FDWaitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDWaitViewController.h; sourceTree = "<group>"; };
 		5B19D8781753A85B00F158B7 /* FDWaitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDWaitViewController.m; sourceTree = "<group>"; };
+		5B7C3A201758B84400FA7C12 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		5B7C3A211758B84400FA7C12 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		5B7C3A231758B84400FA7C12 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
+		5B7C3A241758B84400FA7C12 /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
+		5B7C3A251758B84400FA7C12 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
+		5B7C3A261758B84400FA7C12 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
+		5B7C3A2C1758B98D00FA7C12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5BFA034F1757AF27001D330E /* FDTrashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTrashViewController.h; sourceTree = "<group>"; };
 		5BFA03501757AF27001D330E /* FDTrashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTrashViewController.m; sourceTree = "<group>"; };
 		98817BB265614AF0B9218BBC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7C3A2D1758B98D00FA7C12 /* QuartzCore.framework in Frameworks */,
 				5B19D82F175377B200F158B7 /* UIKit.framework in Frameworks */,
 				5B19D831175377B200F158B7 /* Foundation.framework in Frameworks */,
 				5B19D833175377B200F158B7 /* CoreGraphics.framework in Frameworks */,
@@ -88,6 +102,7 @@
 		5B19D822175377B200F158B7 = {
 			isa = PBXGroup;
 			children = (
+				5B7C3A2C1758B98D00FA7C12 /* QuartzCore.framework */,
 				5B19D834175377B200F158B7 /* Frida+DateSelect */,
 				5B19D82D175377B200F158B7 /* Frameworks */,
 				5B19D82C175377B200F158B7 /* Products */,
@@ -117,6 +132,7 @@
 		5B19D834175377B200F158B7 /* Frida+DateSelect */ = {
 			isa = PBXGroup;
 			children = (
+				5B7C3A1F1758B84400FA7C12 /* Calendar */,
 				5B19D83D175377B200F158B7 /* FDAppDelegate.h */,
 				5B19D83E175377B200F158B7 /* FDAppDelegate.m */,
 				5B19D846175377B200F158B7 /* MainStoryboard.storyboard */,
@@ -154,6 +170,27 @@
 				5B19D844175377B200F158B7 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B7C3A1F1758B84400FA7C12 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				5B7C3A201758B84400FA7C12 /* CKCalendarView.h */,
+				5B7C3A211758B84400FA7C12 /* CKCalendarView.m */,
+				5B7C3A221758B84400FA7C12 /* resources */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		5B7C3A221758B84400FA7C12 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B7C3A231758B84400FA7C12 /* left_arrow.png */,
+				5B7C3A241758B84400FA7C12 /* left_arrow@2x.png */,
+				5B7C3A251758B84400FA7C12 /* right_arrow.png */,
+				5B7C3A261758B84400FA7C12 /* right_arrow@2x.png */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +263,10 @@
 				5B19D873175397FF00F158B7 /* CalendarTodaysDate.png in Resources */,
 				5B19D874175397FF00F158B7 /* CalendarTodaysDate@2x.png in Resources */,
 				5B19D876175399A900F158B7 /* bg.png in Resources */,
+				5B7C3A281758B84400FA7C12 /* left_arrow.png in Resources */,
+				5B7C3A291758B84400FA7C12 /* left_arrow@2x.png in Resources */,
+				5B7C3A2A1758B84400FA7C12 /* right_arrow.png in Resources */,
+				5B7C3A2B1758B84400FA7C12 /* right_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +313,7 @@
 				5B19D84B175377B200F158B7 /* FDViewController.m in Sources */,
 				5B19D8791753A85B00F158B7 /* FDWaitViewController.m in Sources */,
 				5BFA03511757AF27001D330E /* FDTrashViewController.m in Sources */,
+				5B7C3A271758B84400FA7C12 /* CKCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

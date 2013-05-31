@@ -11,5 +11,6 @@
 
 @interface FDWaitViewController : UIViewController <SocketIODelegate>
 - (IBAction)didClickDelete:(id)sender;
+@property (assign, nonatomic) BOOL isPresented;
 
 @end

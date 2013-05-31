@@ -25,31 +25,11 @@ angular.module('frida.controllers', [])
       $scope.update();
     });
 
-    $scope.update = function() {
-      $http({method: 'GET', url: 'http://localhost:82/groceries'}).
+    $scope.delete = function(id, index) {
+      console.log("click!");
+      $scope.items.splice(index, 1);
+      $http({method: 'DELETE', url: 'http://localhost:82/groceries/'+id}).
         success(function(data, status, headers, config) {
-
-            data = data.groceries;
-
-            var items = [];
-            var currArr = [];
-            var count = 0;
-            for(var i = 0; i < data.length; i++) {
-              if(count > 1) {
-                items.push(currArr);
-                currArr = [];
-                count = 0;
-              }
-              currArr.push(data[i]);
-              count++;
-            }
-            if(currArr.length != 0) {
-              items.push(currArr);
-            }
-
-            console.log(items);
-
-            $scope.items = items;                  //set view model
             console.log(data);
         }).
         error(function(data, status, headers, config) {
@@ -58,7 +38,24 @@ angular.module('frida.controllers', [])
         });
     };
 
-          $scope.update();
+
+    $scope.update = function() {
+      $http({method: 'GET', url: 'http://localhost:82/groceries'}).
+        success(function(data, status, headers, config) {
+
+            data = data.groceries;
+            console.log(data);
+
+            $scope.items = data;                  //set view model
+            console.log(data);
+        }).
+        error(function(data, status, headers, config) {
+            $scope.apps = data || "Request failed";
+            $scope.status = status;
+        });
+    };
+
+    $scope.update();
 
 
 

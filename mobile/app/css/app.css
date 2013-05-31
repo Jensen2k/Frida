@@ -64,12 +64,58 @@ body {
     font-family: 'ProximaNova-Regular'; }
 
 .fridge .prod {
-  padding: 10px;
+  position: relative;
+  width: 270px;
+  -webkit-perspective: 800;
+  height: 50px;
   float: left;
-  width: 50%;
-  box-sizing: border-box; }
-  .fridge .prod:nth-child(2) {
-    border-left: 1px solid #ccc; }
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc; }
+  .fridge .prod .prod-inner {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s; }
+    .fridge .prod .prod-inner.flipped {
+      -webkit-transform: rotatex(-180deg); }
+    .fridge .prod .prod-inner .face {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+      z-index: 2;
+      padding: 10px;
+      box-sizing: border-box; }
+    .fridge .prod .prod-inner .front {
+      position: absolute;
+      z-index: 1;
+      cursor: pointer; }
+    .fridge .prod .prod-inner .back {
+      -webkit-transform: rotatex(-180deg);
+      background-color: #434343;
+      color: #fff; }
+      .fridge .prod .prod-inner .back a {
+        color: #000;
+        font-weight: bold;
+        background-color: #fff;
+        padding: 10px 10px;
+        position: relative;
+        top: -3px;
+        float: right;
+        text-align: center;
+        width: 88px;
+        font-family: ProximaNova-Bold; }
+        .fridge .prod .prod-inner .back a.del {
+          background-color: #e74c3c;
+          color: #fff;
+          float: left; }
+        .fridge .prod .prod-inner .back a.cancel {
+          float: right; }
+  .fridge .prod:nth-child(2n+1) {
+    border-left: none; }
   .fridge .prod .prod-name {
     display: block;
     font-family: 'ProximaNova-Bold';
@@ -80,21 +126,25 @@ body {
     font-size: 12px;
     font-style: italic;
     line-height: 12px; }
+.fridge .section-title {
+  padding: 10px 5px 10px 5px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  color: #fff;
+  font-family: 'ProximaNova-Bold'; }
+  .fridge .section-title.red {
+    background-color: #E74C3C; }
+  .fridge .section-title.yellow {
+    background-color: #F39C12; }
+  .fridge .section-title.green {
+    background-color: #2ECC71; }
 .fridge table {
   background: #fff; }
   .fridge table tr.prod-row td {
     position: relative;
     padding: 0px;
     margin: 0px; }
-  .fridge table tr.section-title {
-    color: #fff;
-    font-family: 'ProximaNova-Bold'; }
-    .fridge table tr.section-title.red {
-      background-color: #E74C3C; }
-    .fridge table tr.section-title.yellow {
-      background-color: #F39C12; }
-    .fridge table tr.section-title.green {
-      background-color: #2ECC71; }
 
 .block {
   float: left;
