@@ -100,12 +100,13 @@
 }
 
 -(void)sendToServer:(NSDictionary*)foodItem {
-  AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://fridafridge.com:8080/"]];
+  AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://dev.fridafridge.com:82/"]];
   [httpClient setParameterEncoding:AFFormURLParameterEncoding];
   NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                          path:@"http://fridafridge.com:8080/items"
+                                                          path:@"http://dev.fridafridge.com:82/items"
                                                     parameters:@{@"name":[foodItem objectForKey:@"title"],
-                                                                @"ean": [foodItem objectForKey:@"ean"]}];
+                                                                @"ean": [foodItem objectForKey:@"ean"],
+                                                                @"brand": [foodItem objectForKey:@"brand"]}];
   
   AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
   [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];

@@ -47,7 +47,7 @@
         <!--View Controller - Frida-->
         <scene sceneID="g9b-jf-2Ey">
             <objects>
-                <viewController id="gku-ky-Khc" sceneMemberID="viewController">
+                <viewController id="gku-ky-Khc" customClass="MFViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UNY-8W-Od3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -88,16 +88,30 @@
                                     <segue destination="IbY-jK-iHk" kind="push" id="cl5-PS-IrI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4,9˚C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-ne-PBJ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4,9˚C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxi-ne-PBJ">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="PIg-EB-vPu"/>
                                     <constraint firstAttribute="height" constant="51" id="V8t-g1-L1U"/>
+                                    <constraint firstAttribute="width" constant="117" id="ria-wo-eUd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mitt kjøleskap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfQ-dM-BmV">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Temperatur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrh-9N-vsu">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lukket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qO-Ut-N3O">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="43k-BV-nlP"/>
+                                    <constraint firstAttribute="width" constant="166" id="7qM-Qv-rAR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kjøleskapsdør" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNb-ry-D4e">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -106,23 +120,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="3ia-Pj-vWq" secondAttribute="bottom" constant="71" id="2Vl-eQ-x1Z"/>
+                            <constraint firstItem="Vrh-9N-vsu" firstAttribute="top" secondItem="UNY-8W-Od3" secondAttribute="top" constant="31" id="7jG-k3-yWh"/>
                             <constraint firstItem="XU6-C7-F4B" firstAttribute="trailing" secondItem="3ia-Pj-vWq" secondAttribute="trailing" type="default" id="CcH-nA-pg7"/>
                             <constraint firstItem="3ia-Pj-vWq" firstAttribute="leading" secondItem="XU6-C7-F4B" secondAttribute="leading" type="default" id="GUj-Rv-nle"/>
-                            <constraint firstItem="EfQ-dM-BmV" firstAttribute="centerX" secondItem="lxi-ne-PBJ" secondAttribute="centerX" type="default" id="K2z-IC-xYg"/>
-                            <constraint firstItem="lxi-ne-PBJ" firstAttribute="centerX" secondItem="XU6-C7-F4B" secondAttribute="centerX" type="default" id="LDr-zu-xEi"/>
+                            <constraint firstItem="1qO-Ut-N3O" firstAttribute="centerX" secondItem="XU6-C7-F4B" secondAttribute="centerX" type="default" id="H8K-4j-fnU"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="leading" secondItem="UNY-8W-Od3" secondAttribute="leading" type="default" id="MoF-EC-084"/>
-                            <constraint firstItem="lxi-ne-PBJ" firstAttribute="top" secondItem="EfQ-dM-BmV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Omo-FS-lhG"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="top" secondItem="UNY-8W-Od3" secondAttribute="top" type="default" id="RhN-UF-Otq"/>
+                            <constraint firstItem="lxi-ne-PBJ" firstAttribute="centerX" secondItem="ZNb-ry-D4e" secondAttribute="centerX" type="default" id="T44-YB-YJf"/>
                             <constraint firstAttribute="bottom" secondItem="XU6-C7-F4B" secondAttribute="bottom" constant="145" id="TbA-Da-OEb"/>
+                            <constraint firstItem="Vrh-9N-vsu" firstAttribute="centerX" secondItem="lxi-ne-PBJ" secondAttribute="centerX" type="default" id="VEh-FA-4NM"/>
+                            <constraint firstItem="1qO-Ut-N3O" firstAttribute="centerX" secondItem="ZNb-ry-D4e" secondAttribute="centerX" type="default" id="chh-cu-hzH"/>
                             <constraint firstItem="kE5-gr-aDF" firstAttribute="bottom" secondItem="UNY-8W-Od3" secondAttribute="bottom" type="default" id="dxb-Ft-3L1"/>
-                            <constraint firstItem="kE5-gr-aDF" firstAttribute="trailing" secondItem="UNY-8W-Od3" secondAttribute="trailing" type="default" id="fpq-Nz-Rld"/>
-                            <constraint firstItem="EfQ-dM-BmV" firstAttribute="top" secondItem="UNY-8W-Od3" secondAttribute="top" constant="35" id="mlb-N4-dHG"/>
-                            <constraint firstItem="XU6-C7-F4B" firstAttribute="centerX" secondItem="kE5-gr-aDF" secondAttribute="centerX" type="default" id="t7m-Ce-xeO"/>
+                            <constraint firstItem="1qO-Ut-N3O" firstAttribute="top" secondItem="ZNb-ry-D4e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fIR-WK-bl7"/>
+                            <constraint firstItem="ZNb-ry-D4e" firstAttribute="top" secondItem="UNY-8W-Od3" secondAttribute="top" constant="133" id="tvb-wg-5jE"/>
+                            <constraint firstItem="lxi-ne-PBJ" firstAttribute="centerX" secondItem="UNY-8W-Od3" secondAttribute="centerX" type="default" id="utx-KA-nWA"/>
+                            <constraint firstItem="1qO-Ut-N3O" firstAttribute="centerX" secondItem="kE5-gr-aDF" secondAttribute="centerX" type="default" id="vkv-sR-F5K"/>
+                            <constraint firstItem="ZNb-ry-D4e" firstAttribute="leading" secondItem="Vrh-9N-vsu" secondAttribute="leading" type="default" id="wLs-2M-uuH"/>
+                            <constraint firstItem="lxi-ne-PBJ" firstAttribute="top" secondItem="Vrh-9N-vsu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zio-mJ-aPC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Frida" id="uyU-hK-BXG">
                         <barButtonItem key="backBarButtonItem" title="Tilbake" id="I9S-2C-yQ8"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doorLabel" destination="1qO-Ut-N3O" id="dbs-tZ-4Kn"/>
+                        <outlet property="tempLabel" destination="lxi-ne-PBJ" id="jjC-Sn-JaN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAv-L8-KdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,6 +260,24 @@
     <resources>
         <image name="bg.png" width="640" height="1136"/>
     </resources>
+    <classes>
+        <class className="MFFridgeListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MFFridgeListViewController.h"/>
+        </class>
+        <class className="MFShoppingListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MFShoppingListViewController.h"/>
+        </class>
+        <class className="MFViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MFViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="doorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tempLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

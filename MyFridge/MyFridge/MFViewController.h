@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MFViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *tempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *doorLabel;
 
 @end

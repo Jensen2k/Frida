@@ -54,6 +54,30 @@ exports.setTemp = function(req, res) {
     }
 };
 
+exports.getTemp = function(req, res) {
+    if (db.connection) {
+        var queryString = 'SELECT * FROM fridge_data WHERE type = 1 ORDER BY added DESC LIMIT 1';
+        db.connection.query(queryString, function(err, rows, fields) {
+            if (err) throw err;
+            res.contentType('application/json');
+            res.write(JSON.stringify({"temp": rows[0].value}));
+            res.end();
+        });
+    }
+};
+
+exports.getDoor = function(req, res) {
+    if (db.connection) {
+        var queryString = 'SELECT * FROM fridge_data WHERE type = 2 ORDER BY added DESC LIMIT 1';
+        db.connection.query(queryString, function(err, rows, fields) {
+            if (err) throw err;
+            res.contentType('application/json');
+            res.write(JSON.stringify({"door": rows[0].value}));
+            res.end();
+        });
+    }
+};
+
 exports.one = function(req, res) {
     var id = req.params.id;
     if (db.connection) {

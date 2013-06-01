@@ -10,11 +10,10 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 #import <SocketIO.h>
-#import <SocketRocket/SRWebSocket.h>
+#import <SocketIOPacket.h>
 
 
-
-@interface MFAppDelegate : UIResponder <UIApplicationDelegate, SocketIODelegate, SRWebSocketDelegate>
+@interface MFAppDelegate : UIResponder <UIApplicationDelegate, SocketIODelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray *items;
@@ -23,5 +22,7 @@
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) SocketIO *socketIO;
+
 
 @end

@@ -73,17 +73,28 @@ body {
 
 .content {
   padding: 0px 10px;
+
+  h1 {
+    font-family: 'ProximaNova-Bold';
+    margin-bottom: 0px;
+  }
   h3.subtitle {
+    margin-top: 0px;
     font-size: 16px;
     line-height: 16px;
-    font-family: 'ProximaNova-Regular';
-
+    font-family: 'ProximaNova-Semibold';
   }
 }
 
 .fridge {
 
-
+  .fridge-header {
+    margin: 5px 0px;
+    margin-top: 30px;
+  .notice {
+    font-style: italic;
+  }
+}
 
 
   .prod {
@@ -123,6 +134,7 @@ body {
         -webkit-transform: rotatex(-180deg);
         background-color: #434343;
         color: #fff;
+
         a
         {
           color: #000;
@@ -376,13 +388,13 @@ body {
     height: 215px;
     float: left;
     background-color: rgba(0, 0, 0, 0.8);
-    
+
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 1px 2px rgba(0,0,0,0.65);
 
 
-    
+
     &.box-groceries {
 
     span {
@@ -403,7 +415,7 @@ body {
             border-radius: 45px;
           }
         }
-        
+
         &.box-detail {
           line-height: 50px;
 
@@ -432,7 +444,7 @@ body {
           display: block;
           padding-top: 40px;
         }
-        
+
         &.box-detail {
           font-family: ProximaNova-Bold;
           font-size: 56px;
@@ -458,7 +470,7 @@ body {
           display: block;
           padding-top: 80px;
         }
-        
+
         &.box-detail {
           font-size: 20px;
           line-height: 80px;
@@ -482,7 +494,7 @@ body {
           display: block;
           padding-top: 15px;
         }
-        
+
         &.box-detail {
           line-height: 110px;
 

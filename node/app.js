@@ -57,7 +57,23 @@ app.configure('development', function(){
 app.get('/fridges', model.fridges.get);
 app.get('/fridges/:id', model.fridges.one);
 app.get('/fridges/name/:fridgeName', model.fridges.titleName);
-app.post('/fridges/:id/temp', model.fridges.setTemp);
+app.get('/fridges/:id/temp', model.fridges.getTemp);
+app.get('/fridges/:id/door', model.fridges.getDoor);
+
+app.post('/fridges/:id/temp', function(req, res) {
+  model.fridges.setTemp(req, res);
+  io.sockets.emit("fridge:temp", req.body.temp);
+});
+app.post('/fridges/:id/door', function(req, res) {
+  model.fridges.setDoor(req, res);
+  io.sockets.emit("fridge:door", req.body.door);
+});
+
+app.get('/fridge/:id/reset', function(req, res) {
+  io.sockets.emit("fridge:reset");
+  res.status(200);
+  res.end();
+});
 
 
 // Items
@@ -106,7 +122,6 @@ app.get('/groceries', model.groceries.get);
 app.del('/groceries/:id', model.groceries.remove);
 
 
-app.post('/fridges/:id/door', model.fridges.setDoor);
 
 // Lakerol Test
 // 7

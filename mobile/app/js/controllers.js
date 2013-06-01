@@ -3,11 +3,32 @@
 /* Controllers */
 
 angular.module('frida.controllers', [])
-  .controller('DashboardController', ['$scope', function($scope) {
+  .controller('DashboardController', ['$scope', '$http','socket','$window', function($scope, $http, socket, $window) {
     $scope.templateUrl = "partials/dashboard.html";
-  	$scope.turtle = "Hello, Tony and fuck!";
-  	$scope.shell = "Eirik is a douche";
-  	console.log(this);
+    $scope.temp = "..";
+    $scope.update = function() {
+      $http({method: 'GET', url: 'http://localhost:82/fridges/1/temp'}).
+        success(function(data, status, headers, config) {
+            console.log(data);
+            $scope.temp = data.temp;                  //set view model
+
+        }).
+        error(function(data, status, headers, config) {
+            $scope.apps = data || "Request failed";
+            $scope.status = status;
+        });
+
+    };
+
+    $scope.update();
+
+    socket.on('groceries:update', function (message) {
+        $scope.update();
+    });
+    socket.on('fridge:reset', function (message) {
+        $window.location.reload()
+    });
+
   }])
   .controller('FridgeController', ['$scope', '$http', 'socket', function($scope, $http, socket) {
   	$scope.turtle = "Overview";
