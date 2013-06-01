@@ -94,25 +94,38 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+html {
+	background-color: #2980b9;
+    
+}
 .wrapper {
-    height: 100%;
-    width: 100%;
-    background-color: #2980b9;
-    position: absolute;
+	padding-top: 50px;
+	padding-bottom: 40px;
+    width: 940px;
+	margin: 0px auto;
+}
+
+.video {
+	margin-bottom: 50px;
 }
 
 .logo {
     display: block;
     margin: 0px auto;
     z-index: 10;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-top: -225px;
-    margin-left: -280px;
+	width: 270px;
 }
+
+
+
 .logo img {
     max-width: 100%;
+}
+
+/* ---------- iPhone/iPod Only ---------- */
+@media only screen and (device-width: 320px) {
+  .logo { margin: 10px; left: auto; top: 50%; margin-top: -100px; position: relative; max-width: 100%; }
 }
 
 
