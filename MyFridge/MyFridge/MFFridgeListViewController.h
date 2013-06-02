@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SocketIO.h>
-#import <SocketIOPacket.h>
 
-@interface MFFridgeListViewController : UITableViewController <SocketIODelegate>
 
-@property (nonatomic, strong) SocketIO *socketIO;
+@interface MFFridgeListViewController : UITableViewController
+
 @property (nonatomic, strong) NSArray *groceries;
 
 @end

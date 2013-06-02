@@ -48,6 +48,7 @@
   viewController.product = obj;
   viewController.parent = self;
   if(self.isPresented) {
+    NSLog(@"Is presented");
     [self dismissViewControllerAnimated:YES completion:^{
       [self presentViewController:viewController animated:YES completion:nil];
       self.isPresented = YES;

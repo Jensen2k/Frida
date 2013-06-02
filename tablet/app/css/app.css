@@ -1,0 +1,323 @@
+/* app css stylesheet */
+/*
+* Fonts
+*/
+@font-face {
+  font-family: 'ProximaNova-Bold';
+  src: url("../fonts/ProximaNova-Bold.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/ProximaNova-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Bold.woff") format("woff"), url("../fonts/ProximaNova-Bold.ttf") format("truetype"), url("../fonts/ProximaNova-Bold.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ProximaNova-Light';
+  src: url("../fonts/ProximaNova-Light.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/ProximaNova-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Light.woff") format("woff"), url("../fonts/ProximaNova-Light.ttf") format("truetype"), url("../fonts/ProximaNova-Light.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ProximaNova-Regular';
+  src: url("../fonts/ProximaNova-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype"), url("../fonts/ProximaNova-Regular.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'ProximaNova-Semibold';
+  src: url("../fonts/ProximaNova-Semibold.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype"), url("../fonts/ProximaNova-Semibold.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  font: 14px 'ProximaNova-Regular', HelveticaNeue, Helvetica; }
+
+.app {
+  overflow: hidden;
+  position: relative;
+  width: 800px;
+  height: 480px;
+  background: url(../img/bg.png);
+  overflow-y: scroll; }
+
+.device {
+  background: url(../img/pad.png) no-repeat;
+  width: 1043px;
+  height: 619px;
+  padding: 66px 122px;
+  background-size: 1039px 613px; }
+
+.content {
+  padding: 0px 10px; }
+  .content h1 {
+    font-family: 'ProximaNova-Bold';
+    margin-bottom: 0px; }
+  .content h3.subtitle {
+    margin-top: 0px;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'ProximaNova-Semibold'; }
+
+.fridge .fridge-header {
+  margin: 5px 0px;
+  margin-top: 30px; }
+  .fridge .fridge-header .notice {
+    font-style: italic; }
+.fridge .prod {
+  position: relative;
+  width: 270px;
+  -webkit-perspective: 800;
+  height: 50px;
+  float: left;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc; }
+  .fridge .prod .prod-inner {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s; }
+    .fridge .prod .prod-inner.flipped {
+      -webkit-transform: rotatex(-180deg); }
+    .fridge .prod .prod-inner .face {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+      z-index: 2;
+      padding: 10px;
+      box-sizing: border-box; }
+    .fridge .prod .prod-inner .front {
+      position: absolute;
+      z-index: 1;
+      cursor: pointer; }
+    .fridge .prod .prod-inner .back {
+      -webkit-transform: rotatex(-180deg);
+      background-color: #434343;
+      color: #fff; }
+      .fridge .prod .prod-inner .back a {
+        color: #000;
+        font-weight: bold;
+        background-color: #fff;
+        padding: 10px 10px;
+        position: relative;
+        top: -3px;
+        float: right;
+        text-align: center;
+        width: 88px;
+        font-family: ProximaNova-Bold; }
+        .fridge .prod .prod-inner .back a.del {
+          background-color: #e74c3c;
+          color: #fff;
+          float: left; }
+        .fridge .prod .prod-inner .back a.cancel {
+          float: right; }
+  .fridge .prod:nth-child(2n+1) {
+    border-left: none; }
+  .fridge .prod .prod-name {
+    display: block;
+    font-family: 'ProximaNova-Bold';
+    font-size: 16px; }
+  .fridge .prod .prod-expire {
+    display: block;
+    font-family: 'ProximaNova-Semibold';
+    font-size: 12px;
+    font-style: italic;
+    line-height: 12px; }
+.fridge .section-title {
+  padding: 10px 5px 10px 5px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  color: #fff;
+  font-family: 'ProximaNova-Bold'; }
+  .fridge .section-title.red {
+    background-color: #E74C3C; }
+  .fridge .section-title.yellow {
+    background-color: #F39C12; }
+  .fridge .section-title.green {
+    background-color: #2ECC71; }
+.fridge table {
+  background: #fff; }
+  .fridge table tr.prod-row td {
+    position: relative;
+    padding: 0px;
+    margin: 0px; }
+
+.block {
+  float: left;
+  position: relative; }
+
+.views {
+  position: relative;
+  margin-left: 240px; }
+
+.sidebar {
+  width: 240px;
+  height: 480px;
+  float: left;
+  display: block;
+  background-color: black;
+  position: fixed;
+  z-index: 10;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.8); }
+
+.clock {
+  font-family: ProximaNova-Light;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.39);
+  text-align: center;
+  margin-top: 20px; }
+  .clock .time {
+    /* 13:37: */
+    display: block;
+    font-size: 38px;
+    line-height: 42px;
+    letter-spacing: 2px;
+    text-align: left;
+    margin: 0px auto;
+    width: 147px; }
+  .clock .date {
+    /* 1. april: */
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0px; }
+
+.menu {
+  margin-top: 45px; }
+  .menu ul {
+    margin: 0;
+    padding: 0px; }
+    .menu ul li {
+      list-style: none;
+      margin: 0px;
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative; }
+      .menu ul li:first-child {
+        padding-top: 0px; }
+      .menu ul li * {
+        box-sizing: border-box; }
+      .menu ul li.active {
+        background-color: #2980b9; }
+      .menu ul li i {
+        position: absolute;
+        display: block;
+        float: left;
+        min-width: 38px;
+        top: 7px; }
+        .menu ul li i.dashboard {
+          width: 26px;
+          height: 26px;
+          background: url(../img/dashboard.png) no-repeat;
+          left: 13px;
+          top: 15px; }
+        .menu ul li i.fridge {
+          width: 23px;
+          height: 38px;
+          background: url(../img/frida_clear_logo1.png) no-repeat;
+          left: 13px;
+          top: 7px; }
+        .menu ul li i.shopping {
+          width: 38px;
+          height: 36px;
+          background: url(../img/shopping.png) no-repeat;
+          left: 4px;
+          top: 7px; }
+        .menu ul li i.stats {
+          left: 8px;
+          top: 6px;
+          width: 35px;
+          height: 36px;
+          background: url(../img/stats.png) no-repeat; }
+        .menu ul li i.settings {
+          width: 29px;
+          height: 36px;
+          background: url(../img/settings.png) no-repeat;
+          left: 10px;
+          top: 9px; }
+      .menu ul li a {
+        /* Handleliste: */
+        font-family: ProximaNova-Regular;
+        font-size: 19px;
+        color: #FCFCFC;
+        line-height: 23px;
+        letter-spacing: 1px;
+        text-shadow: 0px 1px 2px rgba(100, 100, 100, 0.39);
+        text-decoration: none;
+        width: 100%;
+        position: relative;
+        display: block;
+        padding: 17px 55px; }
+
+/*
+*   Dashboard
+*/
+.dashboard .box {
+  width: 255px;
+  margin: 10px;
+  height: 215px;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.65); }
+  .dashboard .box.box-groceries span.box-heading {
+    height: 55px;
+    font-family: ProximaNova-Bold;
+    font-size: 64px;
+    line-height: 40px;
+    display: block;
+    padding-top: 50px; }
+    .dashboard .box.box-groceries span.box-heading .box-num {
+      background-color: #e74c3c;
+      padding: 5px 20px;
+      border-radius: 45px; }
+  .dashboard .box.box-groceries span.box-detail {
+    line-height: 50px; }
+  .dashboard .box.box-groceries span.box-middle {
+    font-family: ProximaNova-Bold;
+    font-size: 26px; }
+  .dashboard .box.box-groceries span.box-bottom {
+    line-height: 80px; }
+  .dashboard .box.box-stats span.box-heading {
+    font-size: 18px;
+    line-height: 60px;
+    display: block;
+    padding-top: 40px; }
+  .dashboard .box.box-stats span.box-detail {
+    font-family: ProximaNova-Bold;
+    font-size: 56px;
+    line-height: 80px; }
+  .dashboard .box.box-stats span.box-bottom {
+    line-height: 60px; }
+  .dashboard .box.box-dinner span.box-heading {
+    font-size: 45px;
+    line-height: 15px;
+    display: block;
+    padding-top: 80px; }
+  .dashboard .box.box-dinner span.box-detail {
+    font-size: 20px;
+    line-height: 80px; }
+  .dashboard .box.box-weather span.box-heading {
+    font-size: 18px;
+    line-height: 30px;
+    display: block;
+    padding-top: 15px; }
+  .dashboard .box.box-weather span.box-detail {
+    line-height: 110px; }
+  .dashboard .box.box-weather span.box-middle {
+    font-family: ProximaNova-Bold;
+    font-size: 36px; }

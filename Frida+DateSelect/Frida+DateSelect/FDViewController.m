@@ -144,7 +144,9 @@
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
   self.dateLabel.text = [self.dateFormatter stringFromDate:date];
-  [self.parent dismissViewControllerAnimated:YES completion:nil];
+  [self.parent dismissViewControllerAnimated:YES completion:^{
+    self.parent.isPresented = NO;
+  }];
 }
 
 - (BOOL)calendar:(CKCalendarView *)calendar willChangeToMonth:(NSDate *)date {

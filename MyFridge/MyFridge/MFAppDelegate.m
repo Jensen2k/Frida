@@ -29,9 +29,35 @@
   
   self.shoppingList = [[NSMutableArray alloc] initWithArray:@[@"Melk", @"Brød", @"Leverpostei", @"Juice"]];
 
-  
+  self.socketIO = [[SocketIO alloc] initWithDelegate:self];
+  [self.socketIO connectToHost:@"dev.fridafridge.com" onPort:82];
+
   [self setupRestkit];
     return YES;
+}
+
+-(void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
+{
+  NSLog(@"Recived mess: %@", packet.data);
+  
+  
+}
+
+-(void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
+  NSNotification *notification;
+  NSString *eventName = [packet.dataAsJSON objectForKey:@"name"];
+  
+  NSLog(@"Event: %@", packet.data);
+  if ([eventName isEqualToString:@"groceries:update"]) {
+    notification = [NSNotification notificationWithName:@"groceries:update" object:nil];
+  } else if([eventName isEqualToString:@"fridge:temp"]) {
+    notification = [NSNotification notificationWithName:@"fridge:temp" object:nil];
+  } else if([eventName isEqualToString:@"fridge:door"]) {
+    notification = [NSNotification notificationWithName:@"fridge:door" object:nil];
+  }
+  
+  [[NSNotificationCenter defaultCenter] postNotification:notification];
+  
 }
 
 

@@ -27,10 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.socketIO = [[SocketIO alloc] initWithDelegate:self];
-    [self.socketIO connectToHost:@"dev.fridafridge.com" onPort:82];
     [self loadData];
     NSLog(@"App: %@", [AppDelegate items]);
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"groceries:update" object:nil];
   
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
   
@@ -49,16 +48,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
-{
-  NSLog(@"Recived mess: %@", packet.data);
-  
-}
-
--(void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
-  NSLog(@"Event: %@", packet.data);
-  [self loadData];
-}
 
 
 -(void)loadData {
