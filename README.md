@@ -44,3 +44,4 @@ Further development will include:
 [Frida+DateSelect]: https://github.com/Jensen2k/Frida/tree/master/Frida+DateSelect
 [Arduino]: https://github.com/Jensen2k/Frida/tree/master/arduino
 [Frida+Importer]: https://github.com/Jensen2k/Frida/tree/master/Frida+Importer
+[AngularJS]: http://angularjs.org/
