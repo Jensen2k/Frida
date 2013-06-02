@@ -31,8 +31,6 @@ angular.module('frida.controllers', [])
 
   }])
   .controller('FridgeController', ['$scope', '$http', 'socket', function($scope, $http, socket) {
-  	$scope.turtle = "Overview";
-  	$scope.shell = "Show's the content for the overview";
     $scope.refresh = function() {
       $scope.update();
     };
@@ -93,12 +91,11 @@ angular.module('frida.controllers', [])
 
   }]).
   controller('Menu', ['$scope', '$location', function($scope, $location) {
-    console.log($location.path());
     $scope.getClass = function(path) {
       if ($location.path().substr(0, path.length) == path) {
-        return "active"
+        return "active";
       } else {
-        return ""
+        return "";
       }
     }
 
